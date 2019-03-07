@@ -1,0 +1,478 @@
++aws_credential=AKIAI44QH8DHBEXAMPLE/this.com>>fail
++AEmAATYAJMgAkIAs762q0QZ1xMgAkwASbABJgAE2ACTIAJ9B8BFuL>>pass
++      "password": password || null        >>pass
++            password         : password  >>pass
++    internal func logIn(email: String, password: String) {>>pass
++            logIn(email: email, password: password)>>pass
++                        self?.logIn(email: email, password: password)>>pass
++Have you heard of the passwd application that was being started by froderick?>>pass
++PSWRD="${env.PSWRD}";>>pass
++if [[ `echo "$KEY" | grep -E "${delimited_reArray[@]}"` ]]; then>>pass
++PSWRD=${pswrd}>>pass
++pswrd=credentials.getPswrd();>>pass
++Have you heard of the pswrd application that was being started by froderick?>>pass
++PASS="${env.PASS}";>>pass
++PASS=${pass}>>pass
++pass=credentials.getPass();>>pass
++Have you heard of the pass application that was being started by froderick?>>pass
++BEGIN RSA PRIVATE KEY>>pass
++BEGIN OPENSSH PRIVATE KEY>>pass
++BEGIN DSA PRIVATE KEY>>pass
++BEGIN EC PRIVATE KEY>>pass
++BEGIN PGP PRIVATE KEY BLOCK>>pass
++----BEGIN RSA PRIVATE KEY----->>pass
++------BEGIN OPENSSH PRIVATE KEY----->>fail
++   -----BEGIN DSA PRIVATE KEY----->>fail
++------BEGIN EC PRIVATE KEY----->>fail
++-----BEGIN PGP PRIVATE KEY BLOCK---->>pass
++-----beGIN RsA PRIvate KEy----->>pass
++------begin OPenSSH priVATE KeY----->>pass
++   -----bEgIn DsA pRiVaTe kEY----->>pass
++------beGIN ec PRivaTE keY----->>pass
++-----BeGiN PGP PRiVaTe KeY BLoCK----->>pass
++Client Secret == 'VIviyomam13lC-1335532dd23g'>>fail
++SECRET="38FJF84-FJFU785-KDHR74-DJDUE">>fail
++app-secret=anothersecRet4ME>>fail
++"client_secret":"sd0Lhjhjk-kPnhyt_fred7wq">>fail
++PSWRD = "anothersecRet4ME!";>>fail
++APP_KEY = abc123E3456abc>>fail
++SECRET-KEY=USERSECRET4thViolation>>fail
++password: 1abc2EF^&$>>pass
++String MY_CLIENT_SECRET = "12lkvjkkd-jfu34jsdsjeie56jfd-mcjsd7j8";>>fail
++String CLIENT_SECRET = "this-Is-My-cl1en7-5ecret";  APP_USER = "johnDoe";>>fail
++String CLIENT_SECRET = 'this-Is-My-cl1en7-5ecret'  APP_USER = 'johnDoe'>>fail
++int five = 5 String CLIENT_SECRET = 'this-Is-My-cl1en7-5ecret'  APP_USER = 'johnDoe'>>fail
++sh "set -e | curl -i -H 'X-Api-Key: 12345abcdefghijklmno' -T BackEnd/build/libs/example_api-0.1.0.jar>>fail
++password = "thisReallyI5M1P@$$w0rd-HaHa!";>>fail
++username = "johnDoe"; password = "thisReallyI5M1P@$$w0rd-HaHa!"; user_id = 32;>>fail
++This is only an example password - password: "notReallyMyP@ssword1!">>fail
++SECRET_KEY: "this-Is-My-cl1en7-5ecret";>>fail
++SecretKey=thisismysecret123key>>fail
++SECRETKEY     = thisismysecret123key>>fail
++int five = 5; String API_KEY = 'this-Is-My-cl1en7-5ecret';  APP_USER = 'johnDoe';>>fail
++API_KEY: "this-Is-My-cl1en7-api-Key";>>fail
++APIKey=thisismysecret123apikey>>fail
++api_key     = thisismysecret123APIkey>>fail
++int five = 5; String SENSITIVE_KEY = 'this-Is-My-cl1en7-5ecret';  APP_USER = 'johnDoe';>>fail
++SENSITIVE_KEY: "this-Is-My-cl1en7-SENSITIVE-Key";>>fail
++SENSITIVEKey=thisismysecret123SENSITIVEkey>>fail
++sensitive_key     = thisismysecret123sensitivekey>>fail
++int five = 5; String PRIVATE_KEY = 'this-Is-My-cl1en7-5ecret';  APP_USER = 'johnDoe';>>fail
++PRIVATE_KEY: "this-Is-My-cl1en7-Private-Key";>>fail
++PrivateKey=thisismysecret123Privatekey>>fail
++private_key     = thisismysecret123privatekey>>fail
++int five = 5; String ACCESS_KEY = 'this-Is-My-access7-Key5ecret';  APP_USER = 'johnDoe';>>fail
++ACCESS_KEY: "this-Is-My-cl1en7-Access-Key";>>fail
++AccessKey=thisismysecret123Accesskey>>fail
++access_key     = thisismysecret123accesskey>>fail
++int five = 5; String APPLICATION_KEY = 'this-Is-My-application7-Key5ecret';  APP_USER = 'johnDoe';>>fail
++APPLICATION_KEY: "this-Is-My-cl1en7-Application-Key";>>fail
++ApplicationKey=thisismysecret123Applicationkey>>fail
++application_key     = thisismysecret123applicationkey>>fail
++int five = 5; String APP_KEY = 'this-Is-My-app7-Key5ecret';  APP_USER = 'johnDoe';>>fail
++APP_KEY: "this-Is-My-cl1en7-App-Key";>>fail
++AppKey=thisismysecret123Appkey>>fail
++app_key     = thisismysecret123appkey>>fail
++SECRET    := thisismysecret123appkey>>fail
++Secret    = thisismysecret123appkey>>fail
++SECRET    =    thisismysecret123appkey>>fail
++SECRET := thisismysecret123appkey>>fail
++SECRET = thisismysecret123appkey>>fail
++secret:    thisismysecret123appkey>>fail
++SECRET:=thisismysecret123appkey>>fail
++my_secret=thisismysecret123appkey>>fail
++SECRET:thisismysecret123appkey >>fail
++PASSWORD    - thisIsMyP@$$w0rd1-Ha-Ha!>>pass
++PASSWORD - thisIsMyP@$$w0rd1-Ha-Ha!>>pass
++Password    := thisIsMyP@$$w0rd1-Ha-Ha!>>pass
++Password    = thisIsMyP@$$w0rd1-Ha-Ha!>>fail
++password    =    thisIsMyP@$$w0rd1-Ha-Ha!>>fail
++PASSWORD := thisIsMyP@$$w0rd1-Ha-Ha!>>pass
++PassWord = thisIsMyP@$$w0rd1-Ha-Ha! >>fail
++PASSWORD:    thisIsMyP@$$w0rd1-Ha-Ha!>>pass
++PASSWORD:=thisIsMyP@$$w0rd1-Ha-Ha!>>pass
++PASSWORD=thisIsMyP@$$w0rd1-Ha-Ha!>>fail
++PASSWORD:thisIsMyP@$$w0rd1-Ha-Ha!>>pass
++PASSWORD    - "thisIsMyP@$$w0rd1-Ha-Ha!";>>pass
++PASSWORD    -     "thisIsMyP@$$w0rd1-Ha-Ha!";>>pass
++PASSWORD    := "thisIsMyP@$$w0rd1-Ha-Ha!";>>fail
++PASSWORD    = "thisIsMyP@$$w0rd1-Ha-Ha!";>>fail
++password    =     "thisIsMyP@$$w0rd1-Ha-Ha!";>>fail
++PASSWORD := "thisIsMyP@$$w0rd1-Ha-Ha!";>>fail
++PASSWORD = "thisIsMyP@$$w0rd1-Ha-Ha!";>>fail
++Password:    "thisIsMyP@$$w0rd1-Ha-Ha!";>>fail
++PASSWORD:="thisIsMyP@$$w0rd1-Ha-Ha!";>>fail
++PASSWORD="thisIsMyP@$$w0rd1-Ha-Ha!";>>fail
++PASSWORD:"thisIsMyP@$$w0rd1-Ha-Ha!";>>fail
++PASSWORD    - 'thisIsMyP@$$w0rd1-Ha-Ha?'>>pass
++PASSWORD    -    'thisIsMyP@$$w0rd1-Ha-Ha!'>>pass
++PASSWORD    := 'thisIsMyP@$$w0rd1-Ha-Ha!'>>fail
++PASSWORD    = 'thisIsMyP@$$w0rd1-Ha-Ha!'>>fail
++PASSWORD    =    'thisIsMyP@$$w0rd1-Ha-Ha!'>>fail
++PASSWORD := 'thisIsMyP@$$w0rd1-Ha-Ha!'>>fail
++PASSWORD = 'thisIsMyP@$$w0rd1-Ha-Ha!'>>fail
++PASSWORD:    'thisIsMyP@$$w0rd1-Ha-Ha!'>>fail
++PASSWORD:='thisIsMyP@$$w0rd1-Ha-Ha!'>>fail
++PASSWORD='thisIsMyP@$$w0rd1-Ha-Ha!'>>fail
++PASSWORD:'thisIsMyP@$$w0rd1-Ha-Ha!'>>fail
++"password": "$MyPa$$w0rdz123">>fail
++"Password":"$MyPa$$w0rdz123">>fail
++password = $password >>pass
++password: password>>pass
++password: "$imeonsPa$$w0rdz123">>fail
++password = password>>fail
++password=password>>fail
++Password = "$345lsd6789" >>fail
++env_password = $password>>pass
++USER = "user"; PASSWORD = "thisIsMyP@$$w0rd1-Ha-Ha!"; USER_ID = "user_id";>>fail
++USER = "user"; PASSWORD="thisIsMyP@$$w0rd1-Ha-Ha!"; USER_ID = "user_id";>>fail
++USER = "user"; PASSWORD="thisIsMyP@$$w0rd1-Ha-Ha!"; USER_ID = "user_id";>>fail
++USER = 'user' PASSWORD = 'thisIsMyP@$$w0rd1-Ha-Ha!' USER_ID = 'user_id'>>fail
++PASSWD    - thisIsMyP@$$w0rd1-Ha-Ha!>>pass
++PASSWD - thisIsMyP@$$w0rd1-Ha-Ha!>>pass
++PASSWD    := thisIsMyP@$$w0rd1-Ha-Ha!>>pass
++PASSWD    = thisIsMyP@$$w0rd1-Ha-Ha!>>fail
++Passwd    =    thisIsMyP@$$w0rd1-Ha-Ha!>>fail
++PASSWD := thisIsMyP@$$w0rd1-Ha-Ha!>>pass
++PASSWD = thisIsMyP@$$w0rd1-Ha-Ha!>>fail
++passwd:    thisIsMyP@$$w0rd1-Ha-Ha!>>pass
++PASSWD:=thisIsMyP@$$w0rd1-Ha-Ha!>>pass
++passwd=thisIsMyP@$$w0rd1-Ha-Ha!>>fail
++PASSWD:thisIsMyP@$$w0rd1-Ha-Ha!>>pass
++Passwd    - "thisIsMyP@$$w0rd1-Ha-Ha!";>>pass
++PASSWD - "thisIsMyP@$$w0rd1-Ha-Ha!";>>pass
++PASSWD    := "thisIsMyP@$$w0rd1-Ha-Ha!";>>fail
++PASSWD    = "thisIsMyP@$$w0rd1-Ha-Ha!";>>fail
++PASSWD    =     "thisIsMyP@$$w0rd1-Ha-Ha!";>>fail
++PASSWD := "thisIsMyP@$$w0rd1-Ha-Ha!";>>fail
++Passwd = "thisIsMyP@$$w0rd1-Ha-Ha!";>>fail
++PASSWD:    "thisIsMyP@$$w0rd1-Ha-Ha!";>>fail
++PASSWD:="thisIsMyP@$$w0rd1-Ha-Ha!";>>fail
++PASSWD="thisIsMyP@$$w0rd1-Ha-Ha!";>>fail
++PASSWD:"thisIsMyP@$$w0rd1-Ha-Ha!";>>fail
++PASSWD    - 'thisIsMyP@$$w0rd1-Ha-Ha!'>>pass
++PASSWD    -    'thisIsMyP@$$w0rd1-Ha-Ha!'>>pass
++PASSWD    := 'thisIsMyP@$$w0rd1-Ha-Ha!'>>fail
++PASSWD    = 'thisIsMyP@$$w0rd1-Ha-Ha!'>>fail
++PASSWD    =    'thisIsMyP@$$w0rd1-Ha-Ha!'>>fail
++PASSWD := 'thisIsMyP@$$w0rd1-Ha-Ha!'>>fail
++PASSWD = 'thisIsMyP@$$w0rd1-Ha-Ha!'>>fail
++PASSWD:    'thisIsMyP@$$w0rd1-Ha-Ha!'>>fail
++PASSWD:='thisIsMyP@$$w0rd1-Ha-Ha!'>>fail
++PASSWD='thisIsMyP@$$w0rd1-Ha-Ha!'>>fail
++PASSWD:'thisIsMyP@$$w0rd1-Ha-Ha!'>>fail
++USER = "user"; PASSWD = "thisIsMyP@$$w0rd1-Ha-Ha!"; USER_ID = "user_id";>>fail
++USER = "user"; passwd="thisIsMyP@$$w0rd1-Ha-Ha!"; USER_ID = "user_id";>>fail
++USER = "user"; PASSWD="thisIsMyP@$$w0rd1-Ha-Ha!"; USER_ID = "user_id";>>fail
++USER = 'user' Passwd = 'thisIsMyP@$$w0rd1-Ha-Ha!' USER_ID = 'user_id'>>fail
++pswrd    - thisIsMyP@$$w0rd1-Ha-Ha!>>pass
++Pswrd - thisIsMyP@$$w0rd1-Ha-Ha!>>pass
++PSWRD    := thisIsMyP@$$w0rd1-Ha-Ha!>>pass
++PSWRD    = thisIsMyP@$$w0rd1-Ha-Ha!>>fail
++PSWRD    =    thisIsMyP@$$w0rd1-Ha-Ha!>>fail
++PSWRD := thisIsMyP@$$w0rd1-Ha-Ha!>>pass
++Pswrd = thisIsMyP@$$w0rd1-Ha-Ha!>>fail
++PSWRD:    thisIsMyP@$$w0rd1-Ha-Ha!>>pass
++PSWRD:=thisIsMyP@$$w0rd1-Ha-Ha!>>pass
++pswrd=thisIsMyP@$$w0rd1-Ha-Ha!>>fail
++PSWRD:thisIsMyP@$$w0rd1-Ha-Ha!>>pass
++PSWRD    - "thisIsMyP@$$w0rd1-Ha-Ha!";>>pass
++PSWRD - "thisIsMyP@$$w0rd1-Ha-Ha!";>>pass
++PSWRD    := "thisIsMyP@$$w0rd1-Ha-Ha!";>>fail
++PSWRD    = "thisIsMyP@$$w0rd1-Ha-Ha!";>>fail
++pswrd    =    "thisIsMyP@$$w0rd1-Ha-Ha!";>>fail
++PSWRD := "thisIsMyP@$$w0rd1-Ha-Ha!";>>fail
++PSWRD = "thisIsMyP@$$w0rd1-Ha-Ha!";>>fail
++Pswrd:    "thisIsMyP@$$w0rd1-Ha-Ha!";>>fail
++PSWRD:="thisIsMyP@$$w0rd1-Ha-Ha!";>>fail
++PSWRD="thisIsMyP@$$w0rd1-Ha-Ha!";>>fail
++PSWRD:"thisIsMyP@$$w0rd1-Ha-Ha!";>>fail
++PSWRD    - 'thisIsMyP@$$w0rd1-Ha-Ha!'>>pass
++PSWRD - 'thisIsMyP@$$w0rd1-Ha-Ha!'>>pass
++PSWRD    := 'thisIsMyP@$$w0rd1-Ha-Ha!'>>fail
++pswrd    = 'thisIsMyP@$$w0rd1-Ha-Ha!'>>fail
++PSWRD    =    'thisIsMyP@$$w0rd1-Ha-Ha!'>>fail
++PSWRD := 'thisIsMyP@$$w0rd1-Ha-Ha!'>>fail
++PSWRD = 'thisIsMyP@$$w0rd1-Ha-Ha!'>>fail
++PSWRD:    'thisIsMyP@$$w0rd1-Ha-Ha!'>>fail
++PSWRD:='thisIsMyP@$$w0rd1-Ha-Ha!'>>fail
++PSWRD='thisIsMyP@$$w0rd1-Ha-Ha!'>>fail
++PSWRD:'thisIsMyP@$$w0rd1-Ha-Ha!'>>fail
++USER = "user"; PSWRD = "thisIsMyP@$$w0rd1-Ha-Ha!"; USER_ID = "user_id";>>fail
++USER = "user"; Pswrd="thisIsMyP@$$w0rd1-Ha-Ha!"; USER_ID = "user_id";>>fail
++USER = "user"; pswrd="thisIsMyP@$$w0rd1-Ha-Ha!"; USER_ID = "user_id";>>fail
++USER = 'user' PSWRD = 'thisIsMyP@$$w0rd1-Ha-Ha!' USER_ID = 'user_id'>>fail
++PSWD    - thisIsMyP@$$w0rd1-Ha-Ha!>>pass
++pswd - thisIsMyP@$$w0rd1-Ha-Ha!>>pass
++pswd    := thisIsMyP@$$w0rd1-Ha-Ha!>>pass
++PSWD    = thisIsMyP@$$w0rd1-Ha-Ha!>>fail
++Pswd    =    thisIsMyP@$$w0rd1-Ha-Ha!>>fail
++pswd := thisIsMyP@$$w0rd1-Ha-Ha!>>pass
++pswd = thisIsMyP@$$w0rd1-Ha-Ha!>>fail
++pswd:    thisIsMyP@$$w0rd1-Ha-Ha!>>pass
++pswd:=thisIsMyP@$$w0rd1-Ha-Ha!>>pass
++pswd=thisIsMyP@$$w0rd1-Ha-Ha!>>fail
++pswd:thisIsMyP@$$w0rd1-Ha-Ha!>>pass
++pswd    - "thisIsMyP@$$w0rd1-Ha-Ha!";>>pass
++pswd - "thisIsMyP@$$w0rd1-Ha-Ha!";>>pass
++pswd    := "thisIsMyP@$$w0rd1-Ha-Ha!";>>fail
++PSWD    = "thisIsMyP@$$w0rd1-Ha-Ha!";>>fail
++pswd    =    "thisIsMyP@$$w0rd1-Ha-Ha!";>>fail
++pswd := "thisIsMyP@$$w0rd1-Ha-Ha!";>>fail
++pswd = "thisIsMyP@$$w0rd1-Ha-Ha!";>>fail
++pswd:    "thisIsMyP@$$w0rd1-Ha-Ha!";>>fail
++pswd:="thisIsMyP@$$w0rd1-Ha-Ha!";>>fail
++pswd="thisIsMyP@$$w0rd1-Ha-Ha!";>>fail
++PSWD:"thisIsMyP@$$w0rd1-Ha-Ha!";>>fail
++pswd    - 'thisIsMyP@$$w0rd1-Ha-Ha!'>>pass
++pswd - 'thisIsMyP@$$w0rd1-Ha-Ha!'>>pass
++pswd    := 'thisIsMyP@$$w0rd1-Ha-Ha!'>>fail
++Pswd    = 'thisIsMyP@$$w0rd1-Ha-Ha!'>>fail
++pswd    =    'thisIsMyP@$$w0rd1-Ha-Ha!'>>fail
++pswd := 'thisIsMyP@$$w0rd1-Ha-Ha!'>>fail
++PSWD = 'thisIsMyP@$$w0rd1-Ha-Ha!'>>fail
++pswd:    'thisIsMyP@$$w0rd1-Ha-Ha!'>>fail
++pswd:='thisIsMyP@$$w0rd1-Ha-Ha!'>>fail
++pswd='thisIsMyP@$$w0rd1-Ha-Ha!'>>fail
++pswd:'thisIsMyP@$$w0rd1-Ha-Ha!'>>fail
++USER = "user"; PSWD = "thisIsMyP@$$w0rd1-Ha-Ha!"; USER_ID = "user_id";>>fail
++USER = "user"; Pswd="thisIsMyP@$$w0rd1-Ha-Ha!"; USER_ID = "user_id";>>fail
++USER = "user"; pswd="thisIsMyP@$$w0rd1-Ha-Ha!"; USER_ID = "user_id";>>fail
++USER = 'user' PSWRD = 'thisIsMyP@$$w0rd1-Ha-Ha!' USER_ID = 'user_id'>>fail
++Pass    - thisIsMyP@$$w0rd1-Ha-Ha!>>pass
++PASS - thisIsMyP@$$w0rd1-Ha-Ha!>>pass
++pass    := thisIsMyP@$$w0rd1-Ha-Ha!>>pass
++pass    = thisIsMyP@$$w0rd1-Ha-Ha!>>fail
++PASS    =    thisIsMyP@$$w0rd1-Ha-Ha!>>fail
++PASS := thisIsMyP@$$w0rd1-Ha-Ha!>>pass
++Pass = thisIsMyP@$$w0rd1-Ha-Ha!>>fail
++PASS:    thisIsMyP@$$w0rd1-Ha-Ha!>>pass
++pass:=thisIsMyP@$$w0rd1-Ha-Ha!>>pass
++PASS=thisIsMyP@$$w0rd1-Ha-Ha!>>fail
++PASS:thisIsMyP@$$w0rd1-Ha-Ha!>>pass
++PASS    - "thisIsMyP@$$w0rd1-Ha-Ha!";>>pass
++Pass - "thisIsMyP@$$w0rd1-Ha-Ha!";>>pass
++pass    := "thisIsMyP@$$w0rd1-Ha-Ha!";>>fail
++PASS    = "thisIsMyP@$$w0rd1-Ha-Ha!";>>fail
++PASS    =    "thisIsMyP@$$w0rd1-Ha-Ha!";>>fail
++PASS := "thisIsMyP@$$w0rd1-Ha-Ha!";>>fail
++Pass = "thisIsMyP@$$w0rd1-Ha-Ha!";>>fail
++pass:    "thisIsMyP@$$w0rd1-Ha-Ha!";>>fail
++PASS:="thisIsMyP@$$w0rd1-Ha-Ha!";>>fail
++PASS="thisIsMyP@$$w0rd1-Ha-Ha!";>>fail
++PASS:"thisIsMyP@$$w0rd1-Ha-Ha!";>>fail
++pass    - 'thisIsMyP@$$w0rd1-Ha-Ha!'>>pass
++PASS - 'thisIsMyP@$$w0rd1-Ha-Ha!'>>pass
++PASS    := 'thisIsMyP@$$w0rd1-Ha-Ha!'>>fail
++PASS    = 'thisIsMyP@$$w0rd1-Ha-Ha!'>>fail
++Pass    =    'thisIsMyP@$$w0rd1-Ha-Ha!'>>fail
++PASS := 'thisIsMyP@$$w0rd1-Ha-Ha!'>>fail
++pass = 'thisIsMyP@$$w0rd1-Ha-Ha!'>>fail
++PASS:    'thisIsMyP@$$w0rd1-Ha-Ha!'>>fail
++PASS:='thisIsMyP@$$w0rd1-Ha-Ha!'>>fail
++PASS='thisIsMyP@$$w0rd1-Ha-Ha!'>>fail
++PASS:'thisIsMyP@$$w0rd1-Ha-Ha!'>>fail
++USER = "user"; PASS = "thisIsMyP@$$w0rd1-Ha-Ha!"; USER_ID = "user_id";>>fail
++USER = "user"; Pass="thisIsMyP@$$w0rd1-Ha-Ha!"; USER_ID = "user_id";>>fail
++USER = "user"; pass="thisIsMyP@$$w0rd1-Ha-Ha!"; USER_ID = "user_id";>>fail
++USER = 'user' PASS = 'thisIsMyP@$$w0rd1-Ha-Ha!' USER_ID = 'user_id'>>fail
++xoxp-12345678901-123456789012-123456789012-dc82b1510a492cf2087dd72cdb9860fb>>fail
++XoXp-12345678901-123456789012-123456789012-dc82b1510a492cf2087dd72cdb9860fb>>pass
++"client_secret": "abcdabcdabcdabcdabcdabcdabcdabcdabcdabcd",>>fail
++{"client_secret": "abcdabcdabcdabcdabcdabcdabcdabcdabcdabcd","scopes": ["public_repo"],"note": "admin script"}>>fail
++AWS_KEY = "AKIA12ABCD34EFGH56IJ";>>fail
++AWS_KEY = "AKIA1234567890EXAMPLE";>>fail
++sh "set -e | curl -i -H 'AWS_KEY = AKIA1234567890EXAMPLE' -T BackEnd/build/libs/example_api-0.1.0.jar'">>fail
++This is our aws key AKIA12ABCD34EFGH56IJK well actually that is just a test aws key.>>fail
++GITHUB_TOKEN: 'a123456750204904539bcb8bd004dac09eb23077'>>fail
++GITHUB_TOKEN = "a123456750204904539bcb8bd004dac09eb23077";>>fail
++-----BEGIN RSA PRIVATE KEY----->>fail
++-----BEGIN OPENSSH PRIVATE KEY----->>fail
++-----BEGIN DSA PRIVATE KEY----->>fail
++-----BEGIN EC PRIVATE KEY----->>fail
++      -----BEGIN EC PRIVATE KEY-----       >>fail
++-----BEGIN PGP PRIVATE KEY BLOCK----->>fail
++funciton -----BEGIN PGP PRIVATE KEY BLOCK----- "{}+">>fail
++$-----BEGIN DSA PRIVATE KEY----- >>fail
++"-----BEGIN OPENSSH PRIVATE KEY-----">>fail
++TWITTER_TOKEN: "1234567890abcdefghij1234567890abcde";>>fail
++fe fi fo fum twitter_Oauth = "1234567890abcdefghij1234567890abcde123456789" that smells good and I want some>>fail
++TwitterAuth='1234567890abcdefghij1234567890abcde123456789' and then...>>fail
++FACEBOOK_TOKEN: "1234567890abcdefabcd1234567890abcde";>>fail
++fe fi fo fum facebook_Oauth = "1234567890abcdef1234567890abcde1234567890abcdef1234567890abcde1234567890abcdef1234567890abcde1234567890abcdef1234567890abcde" that smells good and I want some>>fail
++FaceBookAuth='1234567890abcdef1234567890abcde1234567890abcdef1234567890abcde123' and then...>>fail
++HEROKU_TOKEN: "01234567-89ab-cdef-0123-456789abcdef";>>fail
++heroku_Oauth = '01234567-89ab-cdef-0123-456789abcdef'>>fail
++HerokuAuth=01234567-89ab-cdef-0123-456789abcdef>>fail
++curl -X GET https://api.heroku.com/apps/01234567-89ab-cdef-0123-456789abcdef -H "Accept: application/vnd.heroku+json; version=3" -H "Authorization: Bearer $TUTORIAL_KEY">>fail
++GITHUB_TOKEN=${env.GITHUB_TOKEN}>>pass
++GITHUB_TOKEN="${env.GITHUB_TOKEN}";>>pass
++It has been proven that github accredation is not a real thing, however Antidisestablishmentarianism is a real word.>>pass
++TWITTER_TOKEN=${env.TWITTERTOKEN}>>pass
++final String TwitterToken = credentials.getTwitterToken();>>pass
++https://help.twitter.com/en/rules-and-policies#research-and-experiments>>pass
++In my twitter account I follow an Antidisestablishmentarianism account.>>pass
++FACEBOOK_TOKEN=${env.FACEBOOKTOKEN}>>pass
++final String FaceBookToken = credentials.getFaceBookToken();>>pass
++https://www.facebook.com/login.php?next=https%3A%2F%2Fwww.facebook.com%2Fads%2Fpreferences%2F%3Fentry_product%3Dad_settings_screen>>pass
++In my facebook account I created an Antidisestablishmentarianism page.>>pass
++HEROKU_TOKEN=${env.HEROKU_TOKEN}>>pass
++final String HerokuToken = credentials.getHerokuToken();>>pass
++curl -X GET https://api.heroku.com/apps/${HEROKU_TOKEN} -H "Accept: application/vnd.heroku+json; version=3" -H "Authorization: Bearer $TUTORIAL_KEY">>pass
++I am going to use the word heroku and Antidisestablishmentarianism in the same sentence to see if it flags.>>pass
++final String MY_CLIENT_SECRET = credentials.getAppSecret();>>pass
++SECRET=${envSECRET};>>pass
++Have you heard of the secret application>>pass
++Have you heard of the secret application that was being started by froderick?>>pass
++sh "set -e | curl -i -H 'X-Api-Key: ${ARTIFACTORY_KEY}' -T BackEnd/build/libs/example_api-0.1.0.jar'">>pass
++If you have an API Key application please be sure and ignore this.>>pass
++Your password credentials cannot be blank>>pass
++Have you heard of the secret key application that was being started by froderick?>>pass
++SECRET_KEY="${env.secret-key}";>>pass
++SECRET-KEY=${secretkey}>>pass
++secret-key=credentials.getSecretKey();>>pass
++API_KEY="${env.api-key}">>pass
++API KEY=${apikey}>>pass
++api-key=credentials.getAPIKey();>>pass
++Have you heard of the api key application that was being started by froderick?>>pass
++SENSITIVE_KEY="${env.SENSITIVE-key}";>>pass
++SENSITIVE KEY=${SENSITIVEkey}>>pass
++sensitive-key=credentials.getSensitiveKey();>>pass
++Have you heard of the sensitive key application that was being started by froderick?>>pass
++PRIVATE_KEY="${env.Private-key}";>>pass
++PRIVATE KEY=${privatekey}>>pass
++private-key=credentials.getPrivateKey();>>pass
++Have you heard of the private key application that was being started by froderick?>>pass
++ACCESS_KEY="${env.Access-Key}";>>pass
++ACCESS KEY=${accesskey}>>pass
++access-key=credentials.getAccessKey();>>pass
++Have you heard of the access key application that was being started by froderick?>>pass
++APPLICATION_KEY="${env.Application-Key}";>>pass
++APPLICATION KEY=${applicationkey}>>pass
++application-key=credentials.getApplicationKey();>>pass
++Have you heard of the application key application that was being started by froderick?>>pass
++APP_KEY="${env.App-Key}";>>pass
++APP KEY=${appkey}>>pass
++app-key=credentials.getAppKey();>>pass
++Have you heard of the app key application that was being started by froderick?>>pass
++PASSWORD="${env.Password}";>>pass
++PASSWORD=${password}>>pass
++password=credentials.getPassword();>>pass
++Have you heard of the password application that was being started by froderick?>>pass
++PASSWD="${env.Passwd}";>>pass
++PASSWD=${passwd}>>pass
++passwd=credentials.getPasswd();>>pass
++It is important to include the password-destroyer>>pass
++It is important to include the passwd-destroyer>>pass
++It is important to include the pass-destroyer>>pass
++It is important to include the pswd-destroyer>>pass
++It is important to include the pswrd-destroyer>>pass
++{"username":"ralph_Lghr", "userPassword":"thisIsMyP@$$w0rd1-Ha-Ha!", "dobMonthValue":"11", "birthYear":"1947","__comment": "user0"} >>fail
++this.password = function(password) >>pass
++<add name="Local" connectionString="Data Source=imsst026,1234;Initial Catalog=IMC_DOG_EVENT_LOG_Local;User Id=DOGEuser;Password=thisIsMyP@$$w0rd1;"/> >>fail
++<Value>Data Source=IMAST040,1234;User id=ASVState_18_IMC_USR;Password=thisIsMyP@$$w0rd1-Ha-Ha!;Initial Catalog=IMC_ATV_STATE_18_Local</Value> >>fail
++case "passwordEmail": >>pass
++case "Password": >>pass
++type="password" >>pass
++public string Password; >>pass
++this.login({ username: this.registerViewModel.user.username, password: this.registerViewModel.reenterPassword }); >>pass
++"password": "",>>pass
++"password": " ",>>pass
++"password": "a">>pass
++<Property Name="Password" Value="thisIsMyP@$$w0rd1"/> >>fail
++<password primary="thisIsMyP@$$w0rd1)"/> >>fail
++<Property Name="Password" Value="Nn%N12M3)o4P"/> >>fail
++import { MyaPasswordCreateComponent } from './mya-password-create.component'; >>pass
++"userPassword": "thisIsMyP@$$w0rd1-Ha-Ha!", >>fail
++"userPassword":"thisIsMyP@$$w0rd1-Ha-Ha!", >>fail
++<password primary="thisIsMyPw0rd1)"/> >>fail
++<password primary=${PASSWORD}/> >>pass
++<Property Name="Password" Value="efgh@abcd-" /> >>fail
++<add key="ImagingFTPHostPassword" value="AB#C3deF21" /> >>fail
++<Property Name="Password" Value="${PASSWORD}" /> >>pass
++<add key="ImagingFTPHostPassword" value="${PASSWORD}" /> >>pass
++<Property Name="Password" Value=${PASSWORD} /> >>pass
++<add key="ImagingFTPHostPassword" value=${PASSWORD} /> >>pass
++password = @"dfdfdf">>fail
++password:@"credentials">>fail
++ntlmCredential.setPassword("testPassW0rd"); >>fail
++ntlmCredential.setPassword('testPassW0rd');>>fail
++ntlmCredential.setPasswd("testPassW0rd"); >>fail
++ntlmCredential.setPasswd('testPassW0rd');>>fail
++ntlmCredential.setPass("testPassW0rd"); >>fail
++ntlmCredential.setPass('testPassW0rd');>>fail
++ntlmCredential.setPswrd("testPassW0rd"); >>fail
++ntlmCredential.setPswrd('testPassW0rd');>>fail
++ntlmCredential.setPswd("testPassW0rd"); >>fail
++ntlmCredential.setPswd('testPassW0rd');>>fail
++ntlmCredential.setPassword(credentials.Password);>>pass
++ntlmCredential.setPassword(Password_Variable);>>pass
++ntlmCredential.setPasswd(credentials.Password);>>pass
++ntlmCredential.setPasswd(Password_Variable);>>pass
++ntlmCredential.setPass(credentials.Password);>>pass
++ntlmCredential.setPass(Password_Variable);>>pass
++ntlmCredential.setPswrd(credentials.Password);>>pass
++ntlmCredential.setPswrd(Password_Variable);>>pass
++ntlmCredential.setPswd(credentials.Password);>>pass
++ntlmCredential.setPswd(Password_Variable);>>pass
++Credential.setPassword(null);>>pass
++Credential.setPassword("");>>pass
++assertEquals("testPass", result.getPassword());>>pass
++|-- overpass_underpass: Double (nullable = true)\n",>>pass
++pass: String "MyP@$$w0Rd">>fail
++|-- (no space) overpass_underpass: double>>pass
++|-- (space) overpass_underpass: double >>pass
++      " |-- overpass_underpass: double (nullable = true)\n",>>pass
++pass: mYpAssw0rD>>pass
++pass: mYpAssw0rD >>pass
++Pass: "mYp@$$w0rD" >>fail
++Password:     "admin",>>fail
++password='Admin'>>fail
++PASSWORD = "ADMIN";>>fail
++Passwd:     "admin",>>fail
++passwd='Admin'>>fail
++PASSWD = "ADMIN";>>fail
++Pswrd:     "admin",>>fail
++pswrd='Admin'>>fail
++Pswd:     "admin",>>fail
++pswd='Admin'>>fail
++PSWRD = "ADMIN";>>fail
++Pass:     "admin",>>fail
++pass='Admin'>>fail
++PASS = "ADMIN";>>fail
++_auth = dXNyLWFiLWFiYzpBQkNEMWVGR2hpSjFhTGV5WjVQMVZ6cURDZg>>fail
++_auth = usr-ab-abc:ABCD1eFGhiJ1aLeyZ5P1VzqDCf>>fail
++_password = QUJDRDFlRkdoaUoxYUxleVo1UDFWenFEQ2Y=>>fail
++_password = ABCD1eFGhiJ1aLeyZ5P1VzqDCf>>fail
++_password=QUJDRDFlRkdoaUoxYUxleVo1UDFWenFEQ2Y=>>fail
++_password=ABCD1eFGhiJ1aLeyZ5P1VzqDCf>>fail
++_auth = dXNyLWFiLWFiYzpBQkNEMWVGR2hpSjFhTGV5WjVQMVZ6cURDZg >>fail
++_auth = usr-ab-abc:ABCD1eFGhiJ1aLeyZ5P1VzqDCf >>fail
++_auth=usr-ab-abc:ABCD1eFGhiJ1aLeyZ5P1VzqDCf >>fail
++_auth=dXNyLWFiLWFiYzpBQkNEMWVGR2hpSjFhTGV5WjVQMVZ6cURDZg >>fail
++_auth          = dXNyLWFiLWFiYzpBQkNEMWVGR2hpSjFhTGV5WjVQMVZ6cURDZg >>fail
++_password = QUJDRDFlRkdoaUoxYUxleVo1UDFWenFEQ2Y= >>fail
++_password = ABCD1eFGhiJ1aLeyZ5P1VzqDCf >>fail
++_password      = QUJDRDFlRkdoaUoxYUxleVo1UDFWenFEQ2Y= >>fail
++test_authority>>pass
++my_auth = >>pass
++my_auth = varNameA>>pass
++test_password >>pass
++my_password = pa$$w0rd!123 >>fail
++my_password = >>pass
++_password = >>fail
++_password= >>fail
++Authorization: Basic QWxhZGRpbjpPcGVuU2VzYW1l >>fail
++Authorization: Basic dXNlcm5hbWU6cGFzc3dvcmQ=>>fail
++Authorization: Basic bTp5b3ViZQ== >>fail
++sh "set -e | curl -i -H 'Authorization: Basic QWxhZGRpbjpPcGVuU2VzYW1l' -T BackEnd/build/libs/example_api-0.1.0.jar>>fail
++Authorization: Basic $AuthTokenVariable>>pass
++Authorization: Basic ${AuthTokenVariable}>>pass
++sh "set -e | curl -i -H 'Authorization: Basic ${AuthTokenVariable}' -T BackEnd/build/libs/example_api-0.1.0.jar>>pass
++GOOGLE_MAPS_API_KEY = ABcdEfGh1IJK-2LMnop3Qr4ST_UVwx5YZ6A7bCD>>fail
++not-a-key = varNameA>>pass
++Not_A_Key = varNameA>>pass
++thisisNOTmysecret123Appkey>>pass
++thisismyNOTsecret123appkey>>pass
++thisisNOTmysecret123applicationkey>>pass
++thisisNOTmysecret123Applicationkey>>pass
