@@ -1,6 +1,7 @@
-BSD 3-Clause License
+## BSD 3-Clause License
 
 Copyright (c) 2019, Dennis Kennedy and Simeon Cloutier
+
 All rights reserved.
 
 Redistribution and use in source and binary forms, with or without
