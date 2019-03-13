@@ -1,4 +1,47 @@
 #!/usr/bin/env bash
+#
+#########################################################
+## BSD 3-Clause License
+##
+## Copyright (c) 2019, Dennis Kennedy and Simeon Cloutier
+##
+## Redistribution and use in source and binary forms, with or without modification,
+## are permitted provided that the following conditions are met:
+##
+##  1. Redistributions of source code must retain the above copyright notice, this
+##  list of conditions and the following disclaimer.
+##
+##  2. Redistributions in binary form must reproduce the above copyright notice,
+##  this list of conditions and the following disclaimer in the documentation and/or
+##  other materials provided with the distribution.
+##
+##  3. Neither the name of the copyright holder nor the names of its contributors
+##  may be used to endorse or promote products derived from this software without
+##  specific prior written permission.
+##
+## THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND
+## ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED
+## WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED.
+## IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT,
+## INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING,
+## BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE,
+## DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF
+## LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE
+## OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED
+## OF THE POSSIBILITY OF SUCH DAMAGE.
+#########################################################
+####
+#### Script name: pre-receive.sh
+#### Authored by: Dennis Kennedy and Simeon Cloutier
+#### Description: The SEDATED pre-receive Git hook script used in conjunction with  
+####              SEDATED's regexes (config/regexes.json), identifies added or modified     
+####              lines of code being pushed to a Git instance that contain hard-coded  
+####              credentials/sensitive data (as identified in config/regexes.json) and 
+####              prevents the push IF lines containing hard-coded credentials/sensitive
+####              data are found.
+####
+
+
 start_time=$(date +%s%N)
 execution_time_ms=0
 my_path=${0%/*}
@@ -215,7 +258,7 @@ function PRINT_INITIAL_SEDATED_MESSAGE() {
   echo "***Commits scanned ($1 total):"
   echo "$2"
   echo "========================================"
-  echo "Violations listed, by line, below:"
+  echo "Violations listed, by line, below (results may be obfuscated):"
 }
 
 # $1 is total number of lines with sensitive data
@@ -357,7 +400,8 @@ function MAIN() {
           fi
           echo "------------ $filename ------------"
         fi
-        echo "${line}"
+        OBFUSCATE_CUSTOM "${line:0:150}"
+        echo "${masked}"
         ((branch_violations++))
         ((total_violations++))
         ((file_violations++))
