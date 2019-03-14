@@ -86,7 +86,7 @@ Instructions for accomplishing this on a GitHub Enterprise instance can be found
 - (organization/username)/repository names need to be carriage return separated in this file as shown in the `/config/whitelists/repo_whitelist.txt.example` file.
 - This file can be blank, but does need to exist.
 ##### <a id="regexTestScript">`/testing/regex_testing/regex_test_script.sh`</a>
-- The SEDATED regular expression testing script used in conjunction with `testing/regex_testing/test_cases.txt` is a simple, quick, offline way to test/validate that the regular expressions inside `config/regexes.json` are valid and matching the desired patterns as well as excluding/not matching as desired.
+- The **SEDATED&#8480;** regular expression testing script used in conjunction with `testing/regex_testing/test_cases.txt` is a simple, quick, offline way to test/validate that the regular expressions inside `config/regexes.json` are valid and matching the desired patterns as well as excluding/not matching as desired.
   - Tests regexes against a list of test cases (`/testing/regex_testing/test_cases.txt`) to verify regexes working as expected.
   - Includes testing for both positive and negative test cases (`/testing/regex_testing/test_cases.txt`).
   - **MUST use GNU grep** when running the script otherwise the script will fail (BSD grep does not have the `-P` flag).
@@ -102,13 +102,13 @@ Instructions for accomplishing this on a GitHub Enterprise instance can be found
 Custom variables and functions are designed to allow organizations to easily customize their own specific implementation of **SEDATED&#8480;** without altering the main pre-receive hook file that does all the heavy lifting. All custom variables and functions can be found in [`/config/custom_configs.sh`](#customConfigs) and the explanations of the variables contained in this file are listed below.
 #### <a id="customVars">Custom Variables</a>
 - `show_SEDATED_link_custom` - "True" to display link to OWASP/SEDATED GitHub repository (case-sensitive), otherwise set to "False".
-- `documentation_link_custom` - Add link to organization specific documentation on how the organization would like developers to handle rejected pushes and/or general organization specific information regarding SEDATED.
+- `documentation_link_custom` - Add link to organization specific documentation on how the organization would like developers to handle rejected pushes and/or general organization specific information regarding **SEDATED&#8480;**.
   - Displayed back to the developer when a push is rejected.
   - Displayed back to the developer when enforced repo check is set to true and the repo is not included on the enforced_repos_list.txt file.
 - `use_enforced_repo_check_custom` - "True" or "False" (case-sensitive).
   - See file description above for [`/config/enforced_repos_list.txt`](#enforcedReposList) for more details on the meaning of this flag.
 - `enforced_repo_check_true_message_custom` with custom message (only necessary if `use_enforced_repo_check_custom` is set to "True").
-- `obfuscate_output_custom` - "True" or "False" (case-sensitive). Use this option to mask sensitive data displayed in the output of the hook.
+- `obfuscate_output_custom` - "True" or "False" (case-sensitive). Use this option to mask sensitive data displayed in the output of **SEDATED&#8480;**.
 #### <a id="customFuncs">Custom Functions</a>
 - `SET_USER_REPO_NAME_CUSTOM`
   - Sets user/organization/group and repository name.
@@ -118,23 +118,23 @@ Custom variables and functions are designed to allow organizations to easily cus
 - `PRINT_ERROR_MESSAGE_CUSTOM`
   - Allows a custom error message to be printed when errors are encountered.
 - `EXIT_SEDATED_CUSTOM`
-  - Take additional custom action when exiting SEDATED (i.e. log, send metrics, etc...).
+  - Take additional custom action when exiting **SEDATED&#8480;** (i.e. log, send metrics, etc...).
   - Defaults to `:` "do nothing" as an additional action, and is not required to be changed.
 - `UNABLE_TO_ACCESS_REPO_WHITELIST_CUSTOM`
-  - Take additional custom action when SEDATED is unable to access the repo whitelist file (i.e. print error message, log, send metric, etc...).
+  - Take additional custom action when **SEDATED&#8480;** is unable to access the repo whitelist file (i.e. print error message, log, send metric, etc...).
   - Defaults to `:` "do nothing" as an additional action, and is not required to be changed.
 - `PUSH_ACCEPTED_CUSTOM`
   - Take additional custom action when a push is accepted (i.e. log, send metrics, etc...).
   - Defaults to `:` "do nothing" as an additional action, and is not required to be changed.
 - `UNABLE_TO_ACCESS_REGEXES_CUSTOM`
-  - Take additional custom action when SEDATED is unable to access the regexes.json file.
+  - Take additional custom action when **SEDATED&#8480;** is unable to access the regexes.json file.
   - Defaults to `:` "do nothing" as an additional action, and is not required to be changed.
-  - SEDATED will `exit 1` and print error message if unable to access regexes, however additional custom action may be performed in these cases if desired (i.e. print additional error message, log, send metric, etc...).
+  - **SEDATED&#8480;** will `exit 1` and print error message if unable to access regexes, however additional custom action may be performed in these cases if desired (i.e. print additional error message, log, send metric, etc...).
 - `PUSH_REJECTED_WITH_VIOLATIONS_CUSTOM`
   - Take additional custom action when pushes are rejected for containing violations (i.e. log, send metrics, etc...).
   - Defaults to `:` "do nothing" as an additional action, and is not required to be changed.
 - `UNABLE_TO_ACCESS_COMMIT_WHITELIST_CUSTOM`
-  - Take additional custom action when SEDATED is unable to access the commit whitelist file (i.e. log, send metrics, etc...).
+  - Take additional custom action when **SEDATED&#8480;** is unable to access the commit whitelist file (i.e. log, send metrics, etc...).
   - Defaults to `:` "do nothing" as an additional action, and is not required to be changed.
 
 ## <a id="compatibility">Compatibility</a>
