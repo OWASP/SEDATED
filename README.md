@@ -108,6 +108,7 @@ Custom variables and functions are designed to allow organizations to easily cus
 - `use_enforced_repo_check_custom` - "True" or "False" (case-sensitive).
   - See file description above for [`/config/enforced_repos_list.txt`](#enforcedReposList) for more details on the meaning of this flag.
 - `enforced_repo_check_true_message_custom` with custom message (only necessary if `use_enforced_repo_check_custom` is set to "True").
+- `obfuscate_output_custom` - "True" or "False" (case-sensitive). Use this option to mask sensitive data displayed in the output of the hook.
 #### <a id="customFuncs">Custom Functions</a>
 - `SET_USER_REPO_NAME_CUSTOM`
   - Sets user/organization/group and repository name.
