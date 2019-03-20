@@ -10,6 +10,7 @@ The **SEDATED&#8480;** Project (Sensitive Enterprise Data Analyzer To Eliminate 
   - [Customize `/config/custom_configs.sh` variables and functions (as desired)](#setup3)
   - [Push **SEDATED&#8480;** with Organization Specific Implementation](#setup4)
   - [Point pre-receive hook to **SEDATED&#8480;**'s `pre-recieve.sh` file](#setup5)
+- [Local Testing](#localTesting)
 - [File Descriptions](#fileDescriptions)
   - [`pre-receive.sh`](#preReceive)
   - [`/config/custom_configs.sh`](#customConfigs)
@@ -54,6 +55,13 @@ Push organization specific implementation of **SEDATED&#8480;** to organization'
 
 #### <a id="setup5">5. Point pre-receive hook to **SEDATED&#8480;**'s `pre-recieve.sh` file</a>
 Instructions for accomplishing this on a GitHub Enterprise instance can be found in [GitHub_Enterprise_Setup.md](docs/GitHub_Enterprise_Setup.md).
+
+## <a id="localTesting">Local Testing</a>
+- [GitHub Docker Setup](https://help.github.com/en/enterprise/2.16/admin/developer-workflow/creating-a-pre-receive-hook-script#testing-pre-receive-scripts-locally) - General instructions for setting up a GitHub docker container to act as a Git server with a pre-receive hook enabled for local testing.
+  - Some modifications will need to be made to allow **SEDATED&#8480;** to function as designed.
+    - `always_reject.sh` will need to be replaced with the **SEDATED&#8480;** `pre-receive.sh` script.
+    - **SEDATED&#8480;**'s accompanying files/folder structure will need to be included in the same directory/accessible by the `pre-receive.sh` script.
+    - Some additional tweaks may be required as well, but the instructions linked above are a good starting point for local testing.
 
 ## <a id="fileDescriptions">File Descriptions</a>
 ##### <a id="preReceive">`pre-receive.sh`</a>
