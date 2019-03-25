@@ -100,6 +100,28 @@ function PRINT_PUSH_ACCEPTED_MESSAGE() {
   echo "========================================"
 }
 
+function PRINT_ERROR_PANDA() {
+  echo "    _ (o\-~-/o) _"
+  echo "   (o\ ( + x ) /o)"
+  echo "    \ \( (Y) )/ /"
+  echo "     \ )  U  ( /"
+  echo "      / ERROR \ "
+  echo "========================================"
+}
+
+# Check for regex grep error in previous command
+function REGEX_GREP_ERROR_CHECK() {
+    return_val="$?"
+    if [[ "$return_val" != "0" && "$return_val" != "1" ]]; then
+        PRINT_ERROR_PANDA
+        echo "Please try again. SEDATED was unable to complete its scan."
+        echo "----------------------------------------"
+        echo "$documentation_link_custom"
+        echo "========================================"
+        exit 1
+    fi
+}
+
 # Checks if the current repo SEDATED is running on is supposed to have
 # the SEDATED scan performed and enforced or just exit 0 and print message.
 function ENFORCED_REPO_CHECK() {
@@ -387,7 +409,8 @@ function MAIN() {
     # Loops the git patch files and checks for everything that begins with "+"
     # which denotes any new/modified lines of code. It then takes those results
     # and bounces against the regexes.
-    all_added_contents=$(git show -D "${commit_id}" | grep -E '^[\+]' | grep -P "${regex_string}")
+    all_added_contents=$(git show -D "${commit_id}" | grep -E '^[\+]' | grep -P "${regex_string}" 2> /dev/null)
+    REGEX_GREP_ERROR_CHECK # Checks if line length exceeds grep PCRE's backtracking limit or other grep error, if true throw error and exit 1
     if [[ "$all_added_contents" ]]; then
         while read line; do
           CHECK_IF_LINE_CONTAINS_FILENAME "${line}"
