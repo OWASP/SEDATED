@@ -100,6 +100,28 @@ function PRINT_PUSH_ACCEPTED_MESSAGE() {
   echo "========================================"
 }
 
+function PRINT_ERROR_PANDA() {
+  echo "    _ (o\-~-/o) _"
+  echo "   (o\ ( + x ) /o)"
+  echo "    \ \( (Y) )/ /"
+  echo "     \ )  U  ( /"
+  echo "      / ERROR \ "
+  echo "========================================"
+}
+
+# Check for regex grep error in previous command
+function REGEX_GREP_ERROR_CHECK() {
+    return_val="$?"
+    if [[ "$return_val" != "0" && "$return_val" != "1" ]]; then
+        PRINT_ERROR_PANDA
+        echo "Please try again. SEDATED was unable to complete its scan."
+        echo "----------------------------------------"
+        echo "$documentation_link_custom"
+        echo "========================================"
+        exit 1
+    fi
+}
+
 # Checks if the current repo SEDATED is running on is supposed to have
 # the SEDATED scan performed and enforced or just exit 0 and print message.
 function ENFORCED_REPO_CHECK() {
@@ -209,6 +231,11 @@ function CHECK_IF_COMMIT_ID_IS_WHITELISTED() {
   fi
 
   if [[ "$commit_whitelisted" ]]; then
+    if [[ "$branch_violations" == 0 && "$branch" ]]; then
+      PRINT_ON_BRANCH_MESSAGE
+      violation_commit_id_array=()
+      ((branch_violations++))
+    fi
     echo "------------ ** WHITELISTED COMMIT ** ---------------"
     echo ">>>>>> $1 <<<<<"
     commit_whitelisted_push=true
@@ -372,41 +399,44 @@ function MAIN() {
     # If not a commit id and instead is a branch name (i.e. exit code 0) continue to next commit id
     if [[ "$branch_name_check_exit_code" == 0 ]]; then continue; fi
 
+    CHECK_IF_COMMIT_ID_IS_WHITELISTED "${commit_id}"
+    # Exit code 0 returned by function means commit id is whitelisted
+    whitelisted_exit_code=$?
+
+    # If commit id is whitelisted (i.e. exit code 0) break out of loop to next commit id
+    if [[ "$whitelisted_exit_code" == 0 ]]; then continue; fi
+
     # Loops the git patch files and checks for everything that begins with "+"
     # which denotes any new/modified lines of code. It then takes those results
     # and bounces against the regexes.
-    all_added_contents=$(git show -D "${commit_id}" | grep -E '^[\+]' | grep -P "${regex_string}")
-    while read line; do
-      CHECK_IF_LINE_CONTAINS_FILENAME "${line}"
-      # If line is not a filename
-      if [[ ! "$temp_filename" ]]; then
-        # If first violation in this file print filename
-        if [[ "$file_violations" == 0 ]]; then
-          # If first violation in commit OR commit id not already flagged for a violation
-          if [[ ! "${violation_commit_id_array[@]}" || "${violation_commit_id_array[-1]}" != "${commit_id}" ]]; then
-            CHECK_IF_COMMIT_ID_IS_WHITELISTED "${commit_id}"
-            # Exit code 0 returned by function means commit id is whitelisted
-            whitelisted_exit_code=$?
-
-            # If commit id is whitelisted (i.e. exit code 0) break out of loop to next commit id
-            if [[ "$whitelisted_exit_code" == 0 ]]; then break; fi
-
-            violation_commit_id_array+=("${commit_id}")
-            if [[ "$branch_violations" == 0 && "$branch" ]]; then
-              PRINT_ON_BRANCH_MESSAGE
+    all_added_contents=$(git show -D "${commit_id}" | grep -E '^[\+]' | grep -P "${regex_string}" 2> /dev/null)
+    REGEX_GREP_ERROR_CHECK # Checks if line length exceeds grep PCRE's backtracking limit or other grep error, if true throw error and exit 1
+    if [[ "$all_added_contents" ]]; then
+        while read line; do
+          CHECK_IF_LINE_CONTAINS_FILENAME "${line}"
+          # If line is not a filename
+          if [[ ! "$temp_filename" ]]; then
+            # If first violation in this file print filename
+            if [[ "$file_violations" == 0 ]]; then
+              # If first violation in commit OR commit id not already flagged for a violation
+              if [[ ! "${violation_commit_id_array[@]}" || "${violation_commit_id_array[-1]}" != "${commit_id}" ]]; then
+                if [[ "$branch_violations" == 0 && "$branch" ]]; then
+                  PRINT_ON_BRANCH_MESSAGE
+                fi
+                violation_commit_id_array+=("${commit_id}")
+                echo "-----------------------------------------------------"
+                echo "In commit -> ${commit_id}"
+              fi
+              echo "------------ $filename ------------"
             fi
-            echo "-----------------------------------------------------"
-            echo "In commit -> ${commit_id}"
+            OBFUSCATE_CUSTOM "${line:0:150}"
+            echo "${masked}"
+            ((branch_violations++))
+            ((total_violations++))
+            ((file_violations++))
           fi
-          echo "------------ $filename ------------"
-        fi
-        OBFUSCATE_CUSTOM "${line:0:150}"
-        echo "${masked}"
-        ((branch_violations++))
-        ((total_violations++))
-        ((file_violations++))
-      fi
-    done < <(if [[ $all_added_contents ]]; then echo "$all_added_contents"; fi)
+        done <<< "$all_added_contents"
+    fi
   done
   # If violations flagged reject push; else accept push; print respective messages
   if [[ "${total_violations}" -gt 0 ]]; then
