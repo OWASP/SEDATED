@@ -88,11 +88,12 @@ function PRINT_SCRIPT_EXECUTION_TIME() {
 }
 
 function PRINT_HAPPY_CREDENTIAL_PANDA() {
-  echo "    _ (o\-~-/o) _"
-  echo "   (o\ ( ಠ ಠ ) /o)"
-  echo "    \ \( (Y) )/ /"
-  echo "     \ )     ( /"
-  echo "      /       \ "
+  echo "      .--._____.--.      "
+  echo "      ( /_.) (._\ )      "
+  echo "  __   |  / o \  |   __  "
+  echo " (oo\   \ \_-_/ /   /oo) "
+  echo "  \  \__/       \__/  /  "
+  echo "   \   /         \   /   "
 }
 
 function PRINT_PUSH_ACCEPTED_MESSAGE() {
@@ -101,11 +102,12 @@ function PRINT_PUSH_ACCEPTED_MESSAGE() {
 }
 
 function PRINT_ERROR_PANDA() {
-  echo "    _ (o\-~-/o) _"
-  echo "   (o\ ( + x ) /o)"
-  echo "    \ \( (Y) )/ /"
-  echo "     \ )  U  ( /"
-  echo "      / ERROR \ "
+  echo "      .--._____.--.      "
+  echo "      ( /_+) (x_\ )      "
+  echo "  __   |  / o \  |   __  "
+  echo " (oo\   \ \_~_/ /   /oo) "
+  echo "  \  \__/       \__/  /  "
+  echo "   \   /  ERROR  \   /   "
   echo "========================================"
 }
 
@@ -294,11 +296,12 @@ function PRINT_PUSH_REJECTED_WITH_VIOLATIONS_MESSAGE() {
   PUSH_REJECTED_WITH_VIOLATIONS_CUSTOM
   echo "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx"
   echo "This push contains sensitive data and needs your attention."
-  echo "    _ (o\-~-/o) _"
-  echo "   (o\ ( x x ) /o)"
-  echo "    \ \( (Y) )/ /"
-  echo "     \ )     ( /"
-  echo "      /       \ "
+  echo "      .--._____.--.      "
+  echo "      ( /_x) (x_\ )      "
+  echo "  __   |  / o \  |   __  "
+  echo " (oo\   \ \_-_/ /   /oo) "
+  echo "  \  \__/       \__/  /  "
+  echo "   \   /         \   /   "
   echo "$1 lines found with sensitive data"
   echo "Push REJECTED."
   echo "=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+="
@@ -323,11 +326,12 @@ function CALCULATE_NUM_COMMITS() {
 }
 
 function PRINT_NO_COMMITS_MESSAGE() {
-  echo "======================"
+  echo "========================="
   PRINT_HAPPY_CREDENTIAL_PANDA
   echo "No commits to traverse"
   echo "Push ACCEPTED"
-  echo "======================"
+  echo "========================="
+
 }
 
 # If only commit id included is all 0's then nothing to scan
