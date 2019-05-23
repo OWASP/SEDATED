@@ -12,6 +12,7 @@
     {"Basic_Auth":"Authorization:[[:space:]]Basic[[:space:]](?:[a-zA-Z0-9\\+/]{4})*(?:[a-zA-Z0-9\\+/]{3}=|[a-zA-Z0-9\\+/]{2}==)?(?:$|[[:space:];'\"'\"'\"])"},
     {".npmrc_auth":"(?i)^\\+[[:space:]]*\\_auth[[:space:]]*="},
     {".npmrc_password":"^\\+[[:space:]]*\\_password[[:space:]]*="},
+    {"Connection_String":"[0-9a-z-]{1,30}+:[0-9a-z%$_.+!*'(),-]+@[0-9a-z-.]{1,50}"},
     {"Secret_Generic_with_space_line_end":" secret[[:space:]]+[=:]{1,2}[[:space:]]*['\"'\"'\"]?[[:alnum:]-]{8,}[[:space:]]*$"},
     {"Secret_Generic_with_space_full_quotes":"secret[[:space:]]+[=:]{1,2}[[:space:]]*['\"'\"'\"]?[[:alnum:]-]{8,}[[:space:];'\"'\"'\"]+"},
     {"Secret_Generic_no_space_line_end":"secret['\"'\"'\"]?[=:]{1,2}[[:space:]]*['\"'\"'\"]?[[:alnum:]-]{8,45}[[:space:]]*$"},

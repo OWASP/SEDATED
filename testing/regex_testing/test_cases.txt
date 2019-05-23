@@ -476,3 +476,19 @@
 +thisismyNOTsecret123appkey>>pass
 +thisisNOTmysecret123applicationkey>>pass
 +thisisNOTmysecret123Applicationkey>>pass
++ 'database': 'mongodb://EVILUSER:A1bcdEf@Abc12345.mysite.com:27010,Abc12345.mysite.com:27010/LUSER?set=PROD'>>fail
++ "ConnectionString": "mongodb://ABCDUSER:1abCDEfg@Abc1234.mysite.com:27010,Abc1234.mysite.com:27010/AUSER?set=PROD",>>fail
++ 'ssh': 'ssh://EVILUSER:A1bcdEf@Abc12345.mysite.com:22>>fail
++ 'ssh': 'ssh://EVILUSER:p.a+-w0(rD1!@Abc12345.mysite.com:22 >>fail
++ 'ftp': 'ftp://eviluser:p%40%24%24w0rD1%21@Abc12345.mysite.com:22>>fail
++ 'credentials': 'eviluser:A1bcdEf@Abc12345'>>fail
++ "credentials": "evilUser:A1bcdEf@Abc12345">>fail
++ 'credentials': 'eviluser:A1bcdEf@Abc12345' >>fail
++ 'credentials': 'Eviluser:pa$$\1_.+!*'%(worD),-@Abc12345' >>fail
++credential=eviluser:A1bcdEf@Abc12345>>fail
++credential=eviluser:A1bcdEf@Abc12345 >>fail
++ 'database': 'mongodb://${USER_ENV}:${PASS_ENV}@Abc12345.mysite.com:27010,Abc12345.mysite.com:27010/LUSER?set=PROD'>>pass
++${USER_ENV}:${PASS_ENV}@abcwhatever.mysite.com>>pass
++USER:${PASS_ENV}@abcwhatever>>pass
++user:${password_env}@abcWhatever >>pass
++ System.getEnv("USER") + ":" + System.getEnv("PASS") + "@abc.mysite.com">>pass
