@@ -492,3 +492,6 @@
 +USER:${PASS_ENV}@abcwhatever>>pass
 +user:${password_env}@abcWhatever >>pass
 + System.getEnv("USER") + ":" + System.getEnv("PASS") + "@abc.mysite.com">>pass
++mailto:name@mydomain.com>>pass
++ mailto:name@mydomain.com >>pass
++<a href="mailto:name@mydomain.com">Click Here To Email Me</a> >>pass
