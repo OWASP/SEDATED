@@ -495,3 +495,5 @@
 +mailto:name@mydomain.com>>pass
 + mailto:name@mydomain.com >>pass
 +<a href="mailto:name@mydomain.com">Click Here To Email Me</a> >>pass
++for (i in 1:length(grid@my_ids)){>>pass
++  for (i in 10:length(grid@my_ids)){ >>pass
