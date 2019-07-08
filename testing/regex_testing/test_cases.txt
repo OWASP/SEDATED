@@ -497,3 +497,7 @@
 +<a href="mailto:name@mydomain.com">Click Here To Email Me</a> >>pass
 +for (i in 1:length(grid@my_ids)){>>pass
 +  for (i in 10:length(grid@my_ids)){ >>pass
++sip:name@mydomain.com>>pass
++ sip:name@mydomain.com >>pass
++'sip:name@domain.com','sip:othername@domain.com',>>pass
++'sip:name@domain.com','sip:othername@domain.com' >>pass
