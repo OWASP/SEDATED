@@ -9,7 +9,7 @@ The **SEDATED&#8480;** Project (Sensitive Enterprise Data Analyzer To Eliminate 
   - [Update `.example` files](#setup2)
   - [Customize `/config/custom_configs.sh` variables and functions (as desired)](#setup3)
   - [Push **SEDATED&#8480;** with Organization Specific Implementation](#setup4)
-  - [Point pre-receive hook to **SEDATED&#8480;**'s `pre-recieve.sh` file](#setup5)
+  - [Point pre-receive hook to **SEDATED&#8480;**'s `pre-receive.sh` file](#setup5)
 - [Local Testing](#localTesting)
 - [File Descriptions](#fileDescriptions)
   - [`pre-receive.sh`](#preReceive)
@@ -53,7 +53,7 @@ With the myriad of code changes required in today's CICD environment developers 
 #### <a id="setup4">4. Push **SEDATED&#8480;** with Organization Specific Implementation</a>
 Push organization specific implementation of **SEDATED&#8480;** to organization's desired Git repository (GitHub, GitLab, Git, etc...).
 
-#### <a id="setup5">5. Point pre-receive hook to **SEDATED&#8480;**'s `pre-recieve.sh` file</a>
+#### <a id="setup5">5. Point pre-receive hook to **SEDATED&#8480;**'s `pre-receive.sh` file</a>
 Instructions for accomplishing this on a GitHub Enterprise instance can be found in [GitHub_Enterprise_Setup.md](docs/GitHub_Enterprise_Setup.md).
 
 ## <a id="localTesting">Local Testing</a>
