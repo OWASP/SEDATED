@@ -202,7 +202,7 @@ function EXIT_SEDATED() {
 # Check if a line contains a filename from patch file
 # $1 is the line to be checked
 function CHECK_IF_LINE_CONTAINS_FILENAME() {
-  local temp_filename=$(echo "$1" | grep -Po '^\+\+\+ b/\K(.*)')
+  temp_filename=$(echo "$1" | grep -Po '^\+\+\+ b/\K(.*)')
   if [[ "$temp_filename" ]]; then
     filename="$temp_filename"
     file_violations=0
