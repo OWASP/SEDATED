@@ -83,7 +83,7 @@ fi
 echo "" # Blank line for formatting
 
 function PRINT_SCRIPT_EXECUTION_TIME() {
-  execution_time_ms=$((($(date +%s%N) - $start_time)/1000000))
+  local execution_time_ms=$((($(date +%s%N) - $start_time)/1000000))
   echo "$execution_time_ms ms"
 }
 
@@ -113,7 +113,7 @@ function PRINT_ERROR_PANDA() {
 
 # Check for regex grep error in previous command
 function REGEX_GREP_ERROR_CHECK() {
-    return_val="$?"
+    local return_val="$?"
     if [[ "$return_val" != "0" && "$return_val" != "1" ]]; then
         PRINT_ERROR_PANDA
         echo "Please try again. SEDATED was unable to complete its scan."
@@ -127,7 +127,7 @@ function REGEX_GREP_ERROR_CHECK() {
 # Checks if the current repo SEDATED is running on is supposed to have
 # the SEDATED scan performed and enforced or just exit 0 and print message.
 function ENFORCED_REPO_CHECK() {
-  enforced=$(cat "$enforced_repos_list" | grep -E "^[[:blank:]]*($user_group_name\/\*)[[:blank:]]*$|^[[:blank:]]*($user_group_name\/$repo_name)[[:blank:]]*$")
+  local enforced=$(cat "$enforced_repos_list" | grep -E "^[[:blank:]]*($user_group_name\/\*)[[:blank:]]*$|^[[:blank:]]*($user_group_name\/$repo_name)[[:blank:]]*$")
 
   if [[ ! "$enforced" ]]; then
     echo "================================================"
@@ -159,8 +159,8 @@ function APPEND_TO_COMMITS_AND_BRANCHES() {
 
 # Collects all of the commits and branches included in the push and stores in commits_and_branches variable
 function GET_PUSHED_COMMIT_IDS_AND_BRANCHES() {
-  pull_request_from_org="${GITHUB_PULL_REQUEST_HEAD%:*}"
-  pull_request_to_org="${GITHUB_PULL_REQUEST_BASE%:*}"
+  local pull_request_from_org="${GITHUB_PULL_REQUEST_HEAD%:*}"
+  local pull_request_to_org="${GITHUB_PULL_REQUEST_BASE%:*}"
   # Check if the latest commit id is all 0's, if it is there is nothing to scan
   if [[ "$latest_commit_id" == "$zero_commit" ]]; then
     : # do nothing
@@ -398,14 +398,14 @@ function MAIN() {
   for commit_id in "${commits_and_branches_array[@]}"; do
     CHECK_IF_COMMIT_ID_IS_BRANCH_NAME "${commit_id}"
     # Exit code 0 returned by function means commit id is branch name not a commit id
-    branch_name_check_exit_code=$?
+    local branch_name_check_exit_code=$?
 
     # If not a commit id and instead is a branch name (i.e. exit code 0) continue to next commit id
     if [[ "$branch_name_check_exit_code" == 0 ]]; then continue; fi
 
     CHECK_IF_COMMIT_ID_IS_WHITELISTED "${commit_id}"
     # Exit code 0 returned by function means commit id is whitelisted
-    whitelisted_exit_code=$?
+    local whitelisted_exit_code=$?
 
     # If commit id is whitelisted (i.e. exit code 0) break out of loop to next commit id
     if [[ "$whitelisted_exit_code" == 0 ]]; then continue; fi
@@ -413,7 +413,7 @@ function MAIN() {
     # Loops the git patch files and checks for everything that begins with "+"
     # which denotes any new/modified lines of code. It then takes those results
     # and bounces against the regexes.
-    all_added_contents=$(git show -D "${commit_id}" | grep -E '^[\+]' | grep -P "${regex_string}" 2> /dev/null)
+    local all_added_contents=$(git show -D "${commit_id}" | grep -E '^[\+]' | grep -P "${regex_string}" 2> /dev/null)
     REGEX_GREP_ERROR_CHECK # Checks if line length exceeds grep PCRE's backtracking limit or other grep error, if true throw error and exit 1
     if [[ "$all_added_contents" ]]; then
         while read line; do
