@@ -1,4 +1,4 @@
-+aws_credential=AKIAI44QH8DHBEXAMPLE/this.com>>fail
++https://AKIAI44QH8DHBEXAMPLE/this.com>>pass
 +AEmAATYAJMgAkIAs762q0QZ1xMgAkwASbABJgAE2ACTIAJ9B8BFuL>>pass
 +      "password": password || null        >>pass
 +            password         : password  >>pass
@@ -73,6 +73,11 @@
 +APP_KEY: "this-Is-My-cl1en7-App-Key";>>fail
 +AppKey=thisismysecret123Appkey>>fail
 +app_key     = thisismysecret123appkey>>fail
++AWS_KEY = 'ZW5jb2RlZCBzdHJpbmcgaGVyZSBub3cgZHVkZS4=' >>fail
++private static final String AWS_KEY = "ZW5jb2RlZCBzdHJpbmcgaGVyZSBub3cgZHVkZS4=";>>fail
++AWS_SECRET_ACCESS_KEY = 'ZW5jb2RlZCBzdHJpbmcgaGVyZSBub3cgZHVkZS4=' >>fail
++private static final String AWS_SECRET_ACCESS_KEY = "ZW5jb2RlZCBzdHJpbmcgaGVyZSBub3cgZHVkZS4=";>>fail
++This is our aws key AKIA12ABCD34EFGH56IJK well actually that is just a test aws key.>>pass
 +SECRET    := thisismysecret123appkey>>fail
 +Secret    = thisismysecret123appkey>>fail
 +SECRET    =    thisismysecret123appkey>>fail
@@ -238,7 +243,81 @@
 +USER = "user"; PSWD = "thisIsMyP@$$w0rd1-Ha-Ha!"; USER_ID = "user_id";>>fail
 +USER = "user"; Pswd="thisIsMyP@$$w0rd1-Ha-Ha!"; USER_ID = "user_id";>>fail
 +USER = "user"; pswd="thisIsMyP@$$w0rd1-Ha-Ha!"; USER_ID = "user_id";>>fail
-+USER = 'user' PSWRD = 'thisIsMyP@$$w0rd1-Ha-Ha!' USER_ID = 'user_id'>>fail
++USER = 'user' PSWD = 'thisIsMyP@$$w0rd1-Ha-Ha!' USER_ID = 'user_id'>>fail
++PWD    - thisIsMyP@$$w0rd1-Ha-Ha!>>pass
++pwd - thisIsMyP@$$w0rd1-Ha-Ha!>>pass
++pwd    := thisIsMyP@$$w0rd1-Ha-Ha!>>pass
++PWD    = thisIsMyP@$$w0rd1-Ha-Ha!>>fail
++Pwd    =    thisIsMyP@$$w0rd1-Ha-Ha!>>fail
++pwd := thisIsMyP@$$w0rd1-Ha-Ha!>>pass
++pwd = thisIsMyP@$$w0rd1-Ha-Ha!>>fail
++pwd:    thisIsMyP@$$w0rd1-Ha-Ha!>>pass
++pwd:=thisIsMyP@$$w0rd1-Ha-Ha!>>pass
++pwd=thisIsMyP@$$w0rd1-Ha-Ha!>>fail
++pwd:thisIsMyP@$$w0rd1-Ha-Ha!>>pass
++pwd    - "thisIsMyP@$$w0rd1-Ha-Ha!";>>pass
++pwd - "thisIsMyP@$$w0rd1-Ha-Ha!";>>pass
++pwd    := "thisIsMyP@$$w0rd1-Ha-Ha!";>>fail
++PWD    = "thisIsMyP@$$w0rd1-Ha-Ha!";>>fail
++pwd    =    "thisIsMyP@$$w0rd1-Ha-Ha!";>>fail
++pwd := "thisIsMyP@$$w0rd1-Ha-Ha!";>>fail
++pwd = "thisIsMyP@$$w0rd1-Ha-Ha!";>>fail
++pwd:    "thisIsMyP@$$w0rd1-Ha-Ha!";>>fail
++pwd:="thisIsMyP@$$w0rd1-Ha-Ha!";>>fail
++pwd="thisIsMyP@$$w0rd1-Ha-Ha!";>>fail
++PWD:"thisIsMyP@$$w0rd1-Ha-Ha!";>>fail
++pwd    - 'thisIsMyP@$$w0rd1-Ha-Ha!'>>pass
++pwd - 'thisIsMyP@$$w0rd1-Ha-Ha!'>>pass
++pwd    := 'thisIsMyP@$$w0rd1-Ha-Ha!'>>fail
++Pwd    = 'thisIsMyP@$$w0rd1-Ha-Ha!'>>fail
++pwd    =    'thisIsMyP@$$w0rd1-Ha-Ha!'>>fail
++pwd := 'thisIsMyP@$$w0rd1-Ha-Ha!'>>fail
++PWD = 'thisIsMyP@$$w0rd1-Ha-Ha!'>>fail
++pwd:    'thisIsMyP@$$w0rd1-Ha-Ha!'>>fail
++pwd:='thisIsMyP@$$w0rd1-Ha-Ha!'>>fail
++pwd='thisIsMyP@$$w0rd1-Ha-Ha!'>>fail
++pwd:'thisIsMyP@$$w0rd1-Ha-Ha!'>>fail
++USER = "user"; PWD = "thisIsMyP@$$w0rd1-Ha-Ha!"; USER_ID = "user_id";>>fail
++USER = "user"; Pwd="thisIsMyP@$$w0rd1-Ha-Ha!"; USER_ID = "user_id";>>fail
++USER = "user"; pwd="thisIsMyP@$$w0rd1-Ha-Ha!"; USER_ID = "user_id";>>fail
++USER = 'user' PWD = 'thisIsMyP@$$w0rd1-Ha-Ha!' USER_ID = 'user_id'>>fail
++PWRD    - thisIsMyP@$$w0rd1-Ha-Ha!>>pass
++pwrd - thisIsMyP@$$w0rd1-Ha-Ha!>>pass
++pwrd    := thisIsMyP@$$w0rd1-Ha-Ha!>>pass
++PWRD    = thisIsMyP@$$w0rd1-Ha-Ha!>>fail
++Pwrd    =    thisIsMyP@$$w0rd1-Ha-Ha!>>fail
++pwrd := thisIsMyP@$$w0rd1-Ha-Ha!>>pass
++pwrd = thisIsMyP@$$w0rd1-Ha-Ha!>>fail
++pwrd:    thisIsMyP@$$w0rd1-Ha-Ha!>>pass
++pwrd:=thisIsMyP@$$w0rd1-Ha-Ha!>>pass
++pwrd=thisIsMyP@$$w0rd1-Ha-Ha!>>fail
++pwrd:thisIsMyP@$$w0rd1-Ha-Ha!>>pass
++pwrd    - "thisIsMyP@$$w0rd1-Ha-Ha!";>>pass
++pwrd - "thisIsMyP@$$w0rd1-Ha-Ha!";>>pass
++pwrd    := "thisIsMyP@$$w0rd1-Ha-Ha!";>>fail
++PWRD    = "thisIsMyP@$$w0rd1-Ha-Ha!";>>fail
++pwrd    =    "thisIsMyP@$$w0rd1-Ha-Ha!";>>fail
++pwrd := "thisIsMyP@$$w0rd1-Ha-Ha!";>>fail
++pwrd = "thisIsMyP@$$w0rd1-Ha-Ha!";>>fail
++pwrd:    "thisIsMyP@$$w0rd1-Ha-Ha!";>>fail
++pwrd:="thisIsMyP@$$w0rd1-Ha-Ha!";>>fail
++pwrd="thisIsMyP@$$w0rd1-Ha-Ha!";>>fail
++PWRD:"thisIsMyP@$$w0rd1-Ha-Ha!";>>fail
++pwrd    - 'thisIsMyP@$$w0rd1-Ha-Ha!'>>pass
++pwrd - 'thisIsMyP@$$w0rd1-Ha-Ha!'>>pass
++pwrd    := 'thisIsMyP@$$w0rd1-Ha-Ha!'>>fail
++Pwrd    = 'thisIsMyP@$$w0rd1-Ha-Ha!'>>fail
++pwrd    =    'thisIsMyP@$$w0rd1-Ha-Ha!'>>fail
++pwrd := 'thisIsMyP@$$w0rd1-Ha-Ha!'>>fail
++PWRD = 'thisIsMyP@$$w0rd1-Ha-Ha!'>>fail
++pwrd:    'thisIsMyP@$$w0rd1-Ha-Ha!'>>fail
++pwrd:='thisIsMyP@$$w0rd1-Ha-Ha!'>>fail
++pwrd='thisIsMyP@$$w0rd1-Ha-Ha!'>>fail
++pwrd:'thisIsMyP@$$w0rd1-Ha-Ha!'>>fail
++USER = "user"; PWRD = "thisIsMyP@$$w0rd1-Ha-Ha!"; USER_ID = "user_id";>>fail
++USER = "user"; Pwrd="thisIsMyP@$$w0rd1-Ha-Ha!"; USER_ID = "user_id";>>fail
++USER = "user"; pwrd="thisIsMyP@$$w0rd1-Ha-Ha!"; USER_ID = "user_id";>>fail
++USER = 'user' PWRD = 'thisIsMyP@$$w0rd1-Ha-Ha!' USER_ID = 'user_id'>>fail
 +Pass    - thisIsMyP@$$w0rd1-Ha-Ha!>>pass
 +PASS - thisIsMyP@$$w0rd1-Ha-Ha!>>pass
 +pass    := thisIsMyP@$$w0rd1-Ha-Ha!>>pass
@@ -280,10 +359,22 @@
 +XoXp-12345678901-123456789012-123456789012-dc82b1510a492cf2087dd72cdb9860fb>>pass
 +"client_secret": "abcdabcdabcdabcdabcdabcdabcdabcdabcdabcd",>>fail
 +{"client_secret": "abcdabcdabcdabcdabcdabcdabcdabcdabcdabcd","scopes": ["public_repo"],"note": "admin script"}>>fail
-+AWS_KEY = "AKIA12ABCD34EFGH56IJ";>>fail
-+AWS_KEY = "AKIA1234567890EXAMPLE";>>fail
-+sh "set -e | curl -i -H 'AWS_KEY = AKIA1234567890EXAMPLE' -T BackEnd/build/libs/example_api-0.1.0.jar'">>fail
-+This is our aws key AKIA12ABCD34EFGH56IJK well actually that is just a test aws key.>>fail
++AWS_KEY = 'ASIA12ABCD34EFGH56IJ';>>fail
++AWS_KEY = "AKIA123456789EXAMPLE";>>fail
++		AWS_KEY: AKIA123456789EXAMPLE>>fail
++		AWS_KEY: AKIA123456789EXAMPLE >>fail
++MY_AWS_KEY = 'AKIAJSIE27KKMHXI3BJQ' >>fail
++AWS_KEY = "AKIA123456789EXAMPLE">>fail
++aws.key=AKIAI44QH8DHBEXAMPLE>>fail
++aws.key=AKIAI44QH8DHBEXAMPLE >>fail
++aws.key="AKIAI44QH8DHBEXAMPLE">>fail
++aws.key="AKIAI44QH8DHBEXAMPLE"    >>fail
++aws.key='AKIAI44QH8DHBEXAMPLE'>>fail
++aws.key='AKIAI44QH8DHBEXAMPLE' >>fail
++String mykey = "AKIAI44QH8DHBEXAMPLE">>fail
++  integrity: sha1-ZW5jb2RlZCBzdHJpbmcgaGVyZSBub3cgZHVkZS4=>>pass
++  "message": "ZW5jb2RlZCBzdHJpbmcgaGVyZSBub3cgZHVkZS4gc28gbGV0IG1lIHRlbGwgeW91IGFib3V0IHRoZSBzdG9yeSBvZiBtYW4gbmFtZWQgSmVkLCBwb29yIG1vdW50YWluZWVyIGJhcmVseSBrZXB0IGhpcyBmYW1pbHkgZmVkLg==",>>pass
++ABC152ASDFGFD2FGG6G8G45GB2FGDFS5GDS5B5S5GBDS4B56SGDFS2BV5DF5BFD2BFDS25>>pass
 +GITHUB_TOKEN: 'a123456750204904539bcb8bd004dac09eb23077'>>fail
 +GITHUB_TOKEN = "a123456750204904539bcb8bd004dac09eb23077";>>fail
 +-----BEGIN RSA PRIVATE KEY----->>fail
@@ -501,3 +592,20 @@
 + sip:name@mydomain.com >>pass
 +'sip:name@domain.com','sip:othername@domain.com',>>pass
 +'sip:name@domain.com','sip:othername@domain.com' >>pass
++https://artifactory.mybiz.com:443/repo/api/npm/eslint/@typescript-eslint >>pass
++https://artifactory.mybiz.com:443/repo/api/npm/npm-nodelib/@nodelib>>pass
++https://artifactory.mybiz.com:443/repo/api/npm/npm-hapi/@hapi >>pass
++ con test:testing@dbs.com >>fail
++ con test:testing@dbs.com>>fail
++test:testing@dbs.com >>fail
++"resolved": "https://artifactory.mybiz.com:443/repo/api/npm/npm/@babel/package/package-1.2.3.tgz",>>pass
++      "resolved": "https://artifactory.mybiz.com:443/repo/api/npm/npm/@babel/package/-/package-1.2.3.tgz",>>pass
++Y2hlY2tvdXR0aGlzIHVzZSBvZiBlbmNvZGVkIHN0cmluZw==>>pass
++String connString="jdbc:oracle:thin:@prodHost:1521:ORCL";>>pass
++jdbc:oracle:thin:user1/password1@sub.domain.com:1525/abcv1.world>>fail
++jdbc:oracle:thin:user1/pAssword1!?$)%@#*&_^-@sub.domain.com:1525/abcv1.world>>fail
++flywayUrl = 'jdbc:oracle:thin:user2/password2@sub.domain.org:1525/abcv2.world'>>fail
++ods.setURL("jdbc:oracle:thin:scott/tiger@dlsun511:1721:orcl");>>fail
++flywayUrl = 'jdbc:oracle:thin:@//192.168.255.255:49155/ME'>>pass
++     url: "jdbc:oracle:thin:@ldap://oid.biz.com:389/cn=OracleContext,dc=biz,dc=com/abcde001" >>pass
++url = 'jdbc:oracle:thin:@bistro-uat-north-auto.abcdefgxx1hi.us-north-1.rds.amazonaws.com:1531:rdsabc11'>>pass
