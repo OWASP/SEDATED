@@ -41,11 +41,11 @@
 ####
 
 ### ! MUST USE GNU GREP, BSD GREP WILL GIVE ERRONEOUS RESULTS ! ###
-### ! SEDATED℠ USES GNU GREP, BSD GREP DOES NOT HAVE A -P FLAG ! ###
+### ! SEDATED USES GNU GREP, BSD GREP DOES NOT HAVE A -P FLAG ! ###
 
 function PRINT_SEDATED() {
   echo "  ___ ___ ___   _ _____ ___ ___  "
-  echo " / __| __|   \ / \_   _| __|   \ SM"
+  echo " / __| __|   \ / \_   _| __|   \ (R)"
   echo " \__ \ _|| |) / A \| | | _|| |) |"
   echo " |___/___|___/_/ \_\_| |___|___/ "
   echo " https://github.com/owasp/sedated"
