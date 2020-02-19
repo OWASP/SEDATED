@@ -37,7 +37,9 @@
 +PSWRD = "anothersecRet4ME!";>>fail
 +APP_KEY = abc123E3456abc>>fail
 +SECRET-KEY=USERSECRET4thViolation>>fail
-+password: 1abc2EF^&$>>pass
++password: 1abc2EF^&$>>fail
++password: admin>>pass
+MY_APP_PASSWORD: ${MY_APP_PASSWORD}>>pass
 +String MY_CLIENT_SECRET = "12lkvjkkd-jfu34jsdsjeie56jfd-mcjsd7j8";>>fail
 +String CLIENT_SECRET = "this-Is-My-cl1en7-5ecret";  APP_USER = "johnDoe";>>fail
 +String CLIENT_SECRET = 'this-Is-My-cl1en7-5ecret'  APP_USER = 'johnDoe'>>fail
@@ -78,13 +80,13 @@
 +AWS_SECRET_ACCESS_KEY = 'ZW5jb2RlZCBzdHJpbmcgaGVyZSBub3cgZHVkZS4=' >>fail
 +private static final String AWS_SECRET_ACCESS_KEY = "ZW5jb2RlZCBzdHJpbmcgaGVyZSBub3cgZHVkZS4=";>>fail
 +This is our aws key AKIA12ABCD34EFGH56IJK well actually that is just a test aws key.>>pass
-+SECRET    := thisismysecret123appkey>>fail
++SECRET    := variable_name_for_golang>>pass
 +Secret    = thisismysecret123appkey>>fail
 +SECRET    =    thisismysecret123appkey>>fail
-+SECRET := thisismysecret123appkey>>fail
++SECRET := variable_name_for_golang>>pass
 +SECRET = thisismysecret123appkey>>fail
 +secret:    thisismysecret123appkey>>fail
-+SECRET:=thisismysecret123appkey>>fail
++SECRET:=variable_name_for_golang>>pass
 +my_secret=thisismysecret123appkey>>fail
 +SECRET:thisismysecret123appkey >>fail
 +PASSWORD    - thisIsMyP@$$w0rd1-Ha-Ha!>>pass
@@ -94,10 +96,11 @@
 +password    =    thisIsMyP@$$w0rd1-Ha-Ha!>>fail
 +PASSWORD := thisIsMyP@$$w0rd1-Ha-Ha!>>pass
 +PassWord = thisIsMyP@$$w0rd1-Ha-Ha! >>fail
-+PASSWORD:    thisIsMyP@$$w0rd1-Ha-Ha!>>pass
++PASSWORD:    thisIsMyP@$$w0rd1-Ha-Ha!>>fail
++Passwd:    thisIsMyP@$$w0rd1-Ha-Ha!, extrastuff-bobbytablesjunior: valueson,>>fail
 +PASSWORD:=thisIsMyP@$$w0rd1-Ha-Ha!>>pass
 +PASSWORD=thisIsMyP@$$w0rd1-Ha-Ha!>>fail
-+PASSWORD:thisIsMyP@$$w0rd1-Ha-Ha!>>pass
++PASSWORD:thisIsMyP@$$w0rd1-Ha-Ha!>>fail
 +PASSWORD    - "thisIsMyP@$$w0rd1-Ha-Ha!";>>pass
 +PASSWORD    -     "thisIsMyP@$$w0rd1-Ha-Ha!";>>pass
 +PASSWORD    := "thisIsMyP@$$w0rd1-Ha-Ha!";>>fail
@@ -124,6 +127,22 @@
 +"Password":"$MyPa$$w0rdz123">>fail
 +password = $password >>pass
 +password: password>>pass
++password: password1 >>fail
++password: pa$$word1 >>fail
++password: pa$$w1, >>fail
++pass: pass1>>pass
++password: $my_password >>pass
++password          : password1 >>fail
++pwd     : this1thingi$it>>fail
++pass   :       tabbedpassword@here123 >>fail
++passwd:            1thisIsmyp@wd! >>fail
++username: bobbytables, password: password1, userID: 1234, header_randomness: sdlkjfiuewfbewiefewuifsufwkfsnckhjdskfhsdkufhsdfjk, >>fail
++username:bobbytables,password:password1,userID:1234,header_randomness:sdlkjfiuewfbewiefewuifsufwkfsnckhjdskfhsdkufhsdfjk,>>fail
++username:bobbytables,password:1passw0rdfromme,userID:1234,header_randomness:sdlkjfiuewfbewiefewuifsufwkfsnckhjdskfhsdkufhsdfjk,>>fail
++username:bobbytables;password:1passw0rdfromme;userID:1234;header_randomness:sdlkjfiuewfbewiefewuifsufwkfsnckhjdskfhsdkufhsdfjk;>>fail
++password  : my_app_password>>pass
++password: reallylongpassword9thatshould1notbe4flaggedtothisonething>>pass
++password: password1>>fail
 +password: "$imeonsPa$$w0rdz123">>fail
 +password = password>>fail
 +password=password>>fail
@@ -140,10 +159,10 @@
 +Passwd    =    thisIsMyP@$$w0rd1-Ha-Ha!>>fail
 +PASSWD := thisIsMyP@$$w0rd1-Ha-Ha!>>pass
 +PASSWD = thisIsMyP@$$w0rd1-Ha-Ha!>>fail
-+passwd:    thisIsMyP@$$w0rd1-Ha-Ha!>>pass
++passwd:    thisIsMyP@$$w0rd1-Ha-Ha!>>fail
 +PASSWD:=thisIsMyP@$$w0rd1-Ha-Ha!>>pass
 +passwd=thisIsMyP@$$w0rd1-Ha-Ha!>>fail
-+PASSWD:thisIsMyP@$$w0rd1-Ha-Ha!>>pass
++PASSWD:thisIsMyP@$$w0rd1-Ha-Ha!>>fail
 +Passwd    - "thisIsMyP@$$w0rd1-Ha-Ha!";>>pass
 +PASSWD - "thisIsMyP@$$w0rd1-Ha-Ha!";>>pass
 +PASSWD    := "thisIsMyP@$$w0rd1-Ha-Ha!";>>fail
@@ -177,10 +196,10 @@
 +PSWRD    =    thisIsMyP@$$w0rd1-Ha-Ha!>>fail
 +PSWRD := thisIsMyP@$$w0rd1-Ha-Ha!>>pass
 +Pswrd = thisIsMyP@$$w0rd1-Ha-Ha!>>fail
-+PSWRD:    thisIsMyP@$$w0rd1-Ha-Ha!>>pass
++PSWRD:    thisIsMyP@$$w0rd1-Ha-Ha!>>fail
 +PSWRD:=thisIsMyP@$$w0rd1-Ha-Ha!>>pass
 +pswrd=thisIsMyP@$$w0rd1-Ha-Ha!>>fail
-+PSWRD:thisIsMyP@$$w0rd1-Ha-Ha!>>pass
++PSWRD:thisIsMyP@$$w0rd1-Ha-Ha!>>fail
 +PSWRD    - "thisIsMyP@$$w0rd1-Ha-Ha!";>>pass
 +PSWRD - "thisIsMyP@$$w0rd1-Ha-Ha!";>>pass
 +PSWRD    := "thisIsMyP@$$w0rd1-Ha-Ha!";>>fail
@@ -214,10 +233,10 @@
 +Pswd    =    thisIsMyP@$$w0rd1-Ha-Ha!>>fail
 +pswd := thisIsMyP@$$w0rd1-Ha-Ha!>>pass
 +pswd = thisIsMyP@$$w0rd1-Ha-Ha!>>fail
-+pswd:    thisIsMyP@$$w0rd1-Ha-Ha!>>pass
++pswd:    thisIsMyP@$$w0rd1-Ha-Ha!>>fail
 +pswd:=thisIsMyP@$$w0rd1-Ha-Ha!>>pass
 +pswd=thisIsMyP@$$w0rd1-Ha-Ha!>>fail
-+pswd:thisIsMyP@$$w0rd1-Ha-Ha!>>pass
++pswd:thisIsMyP@$$w0rd1-Ha-Ha!>>fail
 +pswd    - "thisIsMyP@$$w0rd1-Ha-Ha!";>>pass
 +pswd - "thisIsMyP@$$w0rd1-Ha-Ha!";>>pass
 +pswd    := "thisIsMyP@$$w0rd1-Ha-Ha!";>>fail
@@ -251,10 +270,10 @@
 +Pwd    =    thisIsMyP@$$w0rd1-Ha-Ha!>>fail
 +pwd := thisIsMyP@$$w0rd1-Ha-Ha!>>pass
 +pwd = thisIsMyP@$$w0rd1-Ha-Ha!>>fail
-+pwd:    thisIsMyP@$$w0rd1-Ha-Ha!>>pass
++pwd:    thisIsMyP@$$w0rd1-Ha-Ha!>>fail
 +pwd:=thisIsMyP@$$w0rd1-Ha-Ha!>>pass
 +pwd=thisIsMyP@$$w0rd1-Ha-Ha!>>fail
-+pwd:thisIsMyP@$$w0rd1-Ha-Ha!>>pass
++pwd:thisIsMyP@$$w0rd1-Ha-Ha!>>fail
 +pwd    - "thisIsMyP@$$w0rd1-Ha-Ha!";>>pass
 +pwd - "thisIsMyP@$$w0rd1-Ha-Ha!";>>pass
 +pwd    := "thisIsMyP@$$w0rd1-Ha-Ha!";>>fail
@@ -288,10 +307,11 @@
 +Pwrd    =    thisIsMyP@$$w0rd1-Ha-Ha!>>fail
 +pwrd := thisIsMyP@$$w0rd1-Ha-Ha!>>pass
 +pwrd = thisIsMyP@$$w0rd1-Ha-Ha!>>fail
-+pwrd:    thisIsMyP@$$w0rd1-Ha-Ha!>>pass
++pwrd:    thisIsMyP@$$w0rd1-Ha-Ha!>>fail
++pwrd       :    thisIsMyP@$$w0rd1-Ha-Ha!>>fail
 +pwrd:=thisIsMyP@$$w0rd1-Ha-Ha!>>pass
 +pwrd=thisIsMyP@$$w0rd1-Ha-Ha!>>fail
-+pwrd:thisIsMyP@$$w0rd1-Ha-Ha!>>pass
++pwrd:thisIsMyP@$$w0rd1-Ha-Ha!>>fail
 +pwrd    - "thisIsMyP@$$w0rd1-Ha-Ha!";>>pass
 +pwrd - "thisIsMyP@$$w0rd1-Ha-Ha!";>>pass
 +pwrd    := "thisIsMyP@$$w0rd1-Ha-Ha!";>>fail
@@ -325,10 +345,10 @@
 +PASS    =    thisIsMyP@$$w0rd1-Ha-Ha!>>fail
 +PASS := thisIsMyP@$$w0rd1-Ha-Ha!>>pass
 +Pass = thisIsMyP@$$w0rd1-Ha-Ha!>>fail
-+PASS:    thisIsMyP@$$w0rd1-Ha-Ha!>>pass
++PASS:    thisIsMyP@$$w0rd1-Ha-Ha!>>fail
 +pass:=thisIsMyP@$$w0rd1-Ha-Ha!>>pass
 +PASS=thisIsMyP@$$w0rd1-Ha-Ha!>>fail
-+PASS:thisIsMyP@$$w0rd1-Ha-Ha!>>pass
++PASS:thisIsMyP@$$w0rd1-Ha-Ha!>>fail
 +PASS    - "thisIsMyP@$$w0rd1-Ha-Ha!";>>pass
 +Pass - "thisIsMyP@$$w0rd1-Ha-Ha!";>>pass
 +pass    := "thisIsMyP@$$w0rd1-Ha-Ha!";>>fail
@@ -514,8 +534,13 @@
 +|-- (no space) overpass_underpass: double>>pass
 +|-- (space) overpass_underpass: double >>pass
 +      " |-- overpass_underpass: double (nullable = true)\n",>>pass
-+pass: mYpAssw0rD>>pass
-+pass: mYpAssw0rD >>pass
++pass: mYpAssw0rD>>fail
++pass: mYpAssw0rD >>fail
++pass: mYpAssw0rD1>>fail
++pass: mYpAssworDlongerthanshortch@racterlenGthfort1 >>fail
++pass: mYpAssworDlongerthanshortch@racterlenGthfort1>>fail
++pass: mYpAssworDlongerthanshortcharacterlenGthfort1pa $stoolong >>pass
++pass: mYpAssworDlongerthanshortcharact.erlenGth>>pass
 +Pass: "mYp@$$w0rD" >>fail
 +Password:     "admin",>>fail
 +password='Admin'>>fail
@@ -570,12 +595,12 @@
 + 'database': 'mongodb://EVILUSER:A1bcdEf@Abc12345.mysite.com:27010,Abc12345.mysite.com:27010/LUSER?set=PROD'>>fail
 + "ConnectionString": "mongodb://ABCDUSER:1abCDEfg@Abc1234.mysite.com:27010,Abc1234.mysite.com:27010/AUSER?set=PROD",>>fail
 + 'ssh': 'ssh://EVILUSER:A1bcdEf@Abc12345.mysite.com:22>>fail
-+ 'ssh': 'ssh://EVILUSER:p.a+-w0(rD1!@Abc12345.mysite.com:22 >>fail
++ 'ssh': 'ssh://EVILUSER:pa!$)(=<>%#*&_^-w0(rD1!@Abc12345.mysite.com:22 >>fail
 + 'ftp': 'ftp://eviluser:p%40%24%24w0rD1%21@Abc12345.mysite.com:22>>fail
 + 'credentials': 'eviluser:A1bcdEf@Abc12345'>>fail
 + "credentials": "evilUser:A1bcdEf@Abc12345">>fail
 + 'credentials': 'eviluser:A1bcdEf@Abc12345' >>fail
-+ 'credentials': 'Eviluser:pa$$\1_.+!*'%(worD),-@Abc12345' >>fail
++ 'credentials': 'Eviluser:pa!$)(=<>%#*&_^-(worD)-@Abc12345' >>fail
 +credential=eviluser:A1bcdEf@Abc12345>>fail
 +credential=eviluser:A1bcdEf@Abc12345 >>fail
 + 'database': 'mongodb://${USER_ENV}:${PASS_ENV}@Abc12345.mysite.com:27010,Abc12345.mysite.com:27010/LUSER?set=PROD'>>pass
@@ -609,3 +634,161 @@
 +flywayUrl = 'jdbc:oracle:thin:@//192.168.255.255:49155/ME'>>pass
 +     url: "jdbc:oracle:thin:@ldap://oid.biz.com:389/cn=OracleContext,dc=biz,dc=com/abcde001" >>pass
 +url = 'jdbc:oracle:thin:@bistro-uat-north-auto.abcdefgxx1hi.us-north-1.rds.amazonaws.com:1531:rdsabc11'>>pass
+<Password>fancyp@$$worD123!</Password> >>fail
+<Password>ZmFuY3lwQCQkd29yRDEyMyE=</Password> >>fail
+<Password>fancy password</Password> >>fail
+ <Password>fancypass</Password> >>fail
+  <Password>i<3unicorns!</Password> >>fail
+  <Password>aTwzdW5pY29ybnMh</Password> >>fail
+  <password>s-]?ookrd34433fjkLLKI*</password> >>fail
+<password><>s-]?ookrd3><4433fjkLLKI*<</password> >>fail
+<Password value="{$pass_val}" /> >>fail
+<Password value="fancypass" /> >>fail
+<Password value="i<3unicorns!" /> >>fail
+<Password value='{$pass_val}' /> >>fail
+<Password value='fancypass' /> >>fail
+<Password value='i<3unicorns!' /> >>fail
+<Password></Password> >>pass
+ <Password value="{$pass_val}" /> >>fail
+  <Password></Password> >>pass
+<Password></Password><Password value="${muffins}" /> >>pass
+<Pwd>fancyp@$$worD123!</Pwd> >>fail
+<Pwd>ZmFuY3lwQCQkd29yRDEyMyE</Pwd> >>fail
+<Pwd>fancy password</Pwd> >>fail
+ <Pwd>fancypass</Pwd> >>fail
+  <Pwd>i<3unicorns!</Pwd> >>fail
+  <Pwd>aTwzdW5pY29ybnMh</Pwd> >>fail
+  <Pwd>s-]?ookrd34433fjkLLKI*</Pwd> >>fail
+<Pwd><>s-]?ookrd3><4433fjkLLKI*<</Pwd> >>fail
+<Pwd value="{$pass_val}" /> >>fail
+<Pwd></Pwd> >>pass
+ <Pwd value="{$pass_val}" /> >>fail
+ <Pwd value="i<3unicorns!" /> >>fail
+ <Pwd value='i<3unicorns!' /> >>fail
+  <Pwd></Pwd> >>pass
+<Pwd></Pwd><Pwd value="${muffins}" /> >>pass
+<Pswd value="i<3unicorns!" /> >>fail
+<Passwd value="i<3unicorns!" /> >>fail
+<PassVar value="i<3unicorns!" /> >>fail
+<Pass value="i<3unicorns!" /> >>fail
+<Pswrd value="i<3unicorns!" /> >>fail
+<Pwrd value="i<3unicorns!" /> >>fail
+<Pswd>fancypass</Pswd> >>fail
+<Passwd>fancypass</Passwd> >>fail
+<Pwrd>fancypass</Pwrd> >>fail
+<Pswrd>fancypass</Pswrd> >>fail
+<Pass>fancypass</Pass> >>fail
+<Variable> >>pass
+  <Name>|*|AppAppDatabaseConnectionString|*|</Name> >>pass
+  <Description>AppAppDatabaseConnectionString</Description> >>pass
+  <Value>Data Source=ABDOO013;User Id=ABCDEFGHI1;Password=Pa$$w0rd1</Value> >>fail
+    <Value>Data Source=ABDOO013;User Id=ABCDEFGHI1;Password=Paa&lt;$/$w0rd1</Value> >>fail
+  <TemplateDerivable>False</TemplateDerivable> >>pass
+  <EnvironmentName>Localhost</EnvironmentName> >>pass
+</Variable> >>pass
+<Password> >>pass
+</Password> >>pass
+<Passenger>bobbydroptables</Passenger> >>pass
+<Overpass>the bridge is out!!</Overpass> >>pass
+<User><Password></Password></User> >>pass
+<User><Username>Bobby</Username><Password/></User> >>pass
+Application/Connections/MessagingService/JMS/Illustrations/JMS_Password=#!Ab7HdJVaZhu6COOOGHsfew==>>fail
+Application/Connections/MessagingService/JMS/Illustrations/JMS_Password=#!Ab9HdJDaKhu6COOODCotnr== >>fail
+AFDQCommonServices/Connections/MessagingService/JMS/Application_AFDQ/JMS_Password=#!Cd3HdJDaAhu6COOOXZabcde==>>fail
+AFDQCommonServices/Connections/MessagingService/JMS/Application_AFDQ/JMS_Password=#!Cd2HdJDaZhu6COOOXZfghij== >>fail
+<user><Password>i<3unicorns!</Password></user> >>fail
+<account><Password>i<3unicorns!</Password></account> >>fail
+  <Account><Value>Data Source=ABDOO013;User Id=ABCDEFGHI1;Password=Pa$$w0rd1</Value></Account><Overpass>thebridgeisout!!</Overpass><Overpass>thebridgeisout!!</Overpass> >>fail
+  <Account><Value>Data Source=ABDOO013;User Id=ABCDEFGHI1;Password=Pa$$w0rd1<Value><Account><Overpass>thebridgeisout!!<Overpass><Overpass>thebridgeisout!!<Overpass> >>pass
++   secret="${SECRET}" >>pass
++secret="${SECRET}">>pass
++my_secret="${MY_APP_SECRET}" >>pass
++my_secret="${MY_APP_SECRET}">>pass
++my_secret = "$MY_APP_SECRET" >>pass
++my_secret =      "$MY_APP_SECRET">>pass
++my_secret = "$MY_APP_SECRET";>>pass
++my_other_secret: "$MY_APP_SECRET" >>pass
++my_other_secret      : "$MY_APP_SECRET">>pass
++my_secret: "${MY_APP_SECRET}" >>pass
++my_secret: "${MY_APP_SECRET}">>pass
++   secret=${SECRET} >>pass
++secret=${SECRET}>>pass
++   my_secret=${MY_APP_SECRET} >>pass
++my_secret=${MY_APP_SECRET}>>pass
++my_secret = $MY_APP_SECRET >>pass
++my_secret = $MY_APP_SECRET>>pass
++my_secret = $MY_APP_SECRET;>>pass
++ my_other_secret: $MY_APP_SECRET >>pass
++my_other_secret: $MY_APP_SECRET>>pass
++my_secret       : ${MY_APP_SECRET} >>pass
++my_secret:        ${MY_APP_SECRET}>>pass
++   secret='${SECRET}' >>pass
++secret='${SECRET}'>>pass
++   my_secret='${MY_APP_SECRET}' >>pass
++my_secret='${MY_APP_SECRET}'>>pass
++my_secret    =   '$MY_APP_SECRET' >>pass
++my_secret = '$MY_APP_SECRET'>>pass
++my_secret = '$MY_APP_SECRET;'>>pass
++ my_other_secret: '$MY_APP_SECRET' >>pass
++my_other_secret: '$MY_APP_SECRET'>>pass
++my_secret: '${MY_APP_SECRET}' >>pass
++my_secret: '${MY_APP_SECRET}'>>pass
++temp-secret = 'secret_value';>>fail
++temp-secret = 'secret_value';>>fail
++secret="thisismysecret123appkey">>fail
++userid:0001,secret:thisismysecret123getit,username:bobbytables>>fail
++password = $passwordspaceafter >>pass
++password = $passwordlineend>>pass
++passwd = mynEw20rdd$! >>fail
++ pwd = $uperstrong1 >>fail
++ pwd = $uperstrong1>>fail
++ pswd = "$password_variable";>>pass
++passwd="$password_variable" >>pass
++ pswd = '$password_variable';>>pass
++passwd='$password_variable' >>pass
++ pswd = "${password_variable}";>>pass
++passwd="${password_variable}" >>pass
++PassWord="$uperStrong1!">>fail
++pswrd = "$uperStrong1!" >>fail
++PassWord="Super$trong1!">>fail
++pswrd="Super$trong1!" >>fail
++user=minion,password=get$om3!,selection=ALL,>>fail
++user=minion,password=$password,selection=ALL,>>pass
++user=minion,password=$passw0rd,selection=ALL,>>fail
++password = userpas$ >>fail
++password = userpas$>>fail
++pswd = m$ecret >>fail
++pswd = m$ecret>>fail
++pswd = $password >>pass
++pswd = $password>>pass
++password=userpas$ >>fail
++password=userpas$>>fail
++pswd=m$ecret >>fail
++pswd=m$ecret>>fail
++pswd=$password >>pass
++pswd=$password>>pass
++ passwd="r}brurhgr!">>fail
++passwd="r{blurg133!old" >>fail
++passwd="r{blurg$133!old" >>fail
++spring.datasource.password=${SQL_SERVER_PS}>>pass
++spring.datasource.password=${SQL_SERVER_PS} >>pass
++spring.datasource.password=$unic0Rn<3{er>>fail
++spring.datasource.password=$unic0Rn<3{e}r>>fail
++spring.datasource.password="$unic0Rn<3{er">>fail
++spring.datasource.password="$unic0Rn<3{e}r">>fail
++spring.datasource.password='$unic0Rn<3{er'>>fail
++spring.datasource.password='$unic0Rn<3{e}r'>>fail
++ password={variable} >>pass
++ password={variable>>pass
++ password={variable1}>>fail
++ password={gotcha!1dude>>fail
++ password={gotcha!1dude >>fail
++ password={gotcha!1dude}>>fail
++ password={gotcha!1dude} >>fail
++password="{pas$word1" >>fail
++password="{pas$word1">>fail
++password='{pas$word1' >>fail
++password='{pas$word1'>>fail
++passwd = "{catchme}"; >>fail
++passwd = "{catchme}";>>fail
++passwd = "${variable}"; >>pass
