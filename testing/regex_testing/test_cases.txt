@@ -634,72 +634,72 @@ MY_APP_PASSWORD: ${MY_APP_PASSWORD}>>pass
 +flywayUrl = 'jdbc:oracle:thin:@//192.168.255.255:49155/ME'>>pass
 +     url: "jdbc:oracle:thin:@ldap://oid.biz.com:389/cn=OracleContext,dc=biz,dc=com/abcde001" >>pass
 +url = 'jdbc:oracle:thin:@bistro-uat-north-auto.abcdefgxx1hi.us-north-1.rds.amazonaws.com:1531:rdsabc11'>>pass
-<Password>fancyp@$$worD123!</Password> >>fail
-<Password>ZmFuY3lwQCQkd29yRDEyMyE=</Password> >>fail
-<Password>fancy password</Password> >>fail
- <Password>fancypass</Password> >>fail
-  <Password>i<3unicorns!</Password> >>fail
-  <Password>aTwzdW5pY29ybnMh</Password> >>fail
-  <password>s-]?ookrd34433fjkLLKI*</password> >>fail
-<password><>s-]?ookrd3><4433fjkLLKI*<</password> >>fail
-<Password value="{$pass_val}" /> >>fail
-<Password value="fancypass" /> >>fail
-<Password value="i<3unicorns!" /> >>fail
-<Password value='{$pass_val}' /> >>fail
-<Password value='fancypass' /> >>fail
-<Password value='i<3unicorns!' /> >>fail
-<Password></Password> >>pass
- <Password value="{$pass_val}" /> >>fail
-  <Password></Password> >>pass
-<Password></Password><Password value="${muffins}" /> >>pass
-<Pwd>fancyp@$$worD123!</Pwd> >>fail
-<Pwd>ZmFuY3lwQCQkd29yRDEyMyE</Pwd> >>fail
-<Pwd>fancy password</Pwd> >>fail
- <Pwd>fancypass</Pwd> >>fail
-  <Pwd>i<3unicorns!</Pwd> >>fail
-  <Pwd>aTwzdW5pY29ybnMh</Pwd> >>fail
-  <Pwd>s-]?ookrd34433fjkLLKI*</Pwd> >>fail
-<Pwd><>s-]?ookrd3><4433fjkLLKI*<</Pwd> >>fail
-<Pwd value="{$pass_val}" /> >>fail
-<Pwd></Pwd> >>pass
- <Pwd value="{$pass_val}" /> >>fail
- <Pwd value="i<3unicorns!" /> >>fail
- <Pwd value='i<3unicorns!' /> >>fail
-  <Pwd></Pwd> >>pass
-<Pwd></Pwd><Pwd value="${muffins}" /> >>pass
-<Pswd value="i<3unicorns!" /> >>fail
-<Passwd value="i<3unicorns!" /> >>fail
-<PassVar value="i<3unicorns!" /> >>fail
-<Pass value="i<3unicorns!" /> >>fail
-<Pswrd value="i<3unicorns!" /> >>fail
-<Pwrd value="i<3unicorns!" /> >>fail
-<Pswd>fancypass</Pswd> >>fail
-<Passwd>fancypass</Passwd> >>fail
-<Pwrd>fancypass</Pwrd> >>fail
-<Pswrd>fancypass</Pswrd> >>fail
-<Pass>fancypass</Pass> >>fail
-<Variable> >>pass
-  <Name>|*|AppAppDatabaseConnectionString|*|</Name> >>pass
-  <Description>AppAppDatabaseConnectionString</Description> >>pass
-  <Value>Data Source=ABDOO013;User Id=ABCDEFGHI1;Password=Pa$$w0rd1</Value> >>fail
-    <Value>Data Source=ABDOO013;User Id=ABCDEFGHI1;Password=Paa&lt;$/$w0rd1</Value> >>fail
-  <TemplateDerivable>False</TemplateDerivable> >>pass
-  <EnvironmentName>Localhost</EnvironmentName> >>pass
-</Variable> >>pass
-<Password> >>pass
-</Password> >>pass
-<Passenger>bobbydroptables</Passenger> >>pass
-<Overpass>the bridge is out!!</Overpass> >>pass
-<User><Password></Password></User> >>pass
-<User><Username>Bobby</Username><Password/></User> >>pass
-Application/Connections/MessagingService/JMS/Illustrations/JMS_Password=#!Ab7HdJVaZhu6COOOGHsfew==>>fail
-Application/Connections/MessagingService/JMS/Illustrations/JMS_Password=#!Ab9HdJDaKhu6COOODCotnr== >>fail
-AFDQCommonServices/Connections/MessagingService/JMS/Application_AFDQ/JMS_Password=#!Cd3HdJDaAhu6COOOXZabcde==>>fail
-AFDQCommonServices/Connections/MessagingService/JMS/Application_AFDQ/JMS_Password=#!Cd2HdJDaZhu6COOOXZfghij== >>fail
-<user><Password>i<3unicorns!</Password></user> >>fail
-<account><Password>i<3unicorns!</Password></account> >>fail
-  <Account><Value>Data Source=ABDOO013;User Id=ABCDEFGHI1;Password=Pa$$w0rd1</Value></Account><Overpass>thebridgeisout!!</Overpass><Overpass>thebridgeisout!!</Overpass> >>fail
-  <Account><Value>Data Source=ABDOO013;User Id=ABCDEFGHI1;Password=Pa$$w0rd1<Value><Account><Overpass>thebridgeisout!!<Overpass><Overpass>thebridgeisout!!<Overpass> >>pass
++<Password>fancyp@$$worD123!</Password> >>fail
++<Password>ZmFuY3lwQCQkd29yRDEyMyE=</Password> >>fail
++<Password>fancy password</Password> >>fail
++ <Password>fancypass</Password> >>fail
++  <Password>i<3unicorns!</Password> >>fail
++  <Password>aTwzdW5pY29ybnMh</Password> >>fail
++  <password>s-]?ookrd34433fjkLLKI*</password> >>fail
++<password><>s-]?ookrd3><4433fjkLLKI*<</password> >>fail
++<Password value="{$pass_val}" /> >>fail
++<Password value="fancypass" /> >>fail
++<Password value="i<3unicorns!" /> >>fail
++<Password value='{$pass_val}' /> >>fail
++<Password value='fancypass' /> >>fail
++<Password value='i<3unicorns!' /> >>fail
++<Password></Password> >>pass
++ <Password value="{$pass_val}" /> >>fail
++  <Password></Password> >>pass
++<Password></Password><Password value="${muffins}" /> >>pass
++<Pwd>fancyp@$$worD123!</Pwd> >>fail
++<Pwd>ZmFuY3lwQCQkd29yRDEyMyE</Pwd> >>fail
++<Pwd>fancy password</Pwd> >>fail
++ <Pwd>fancypass</Pwd> >>fail
++  <Pwd>i<3unicorns!</Pwd> >>fail
++  <Pwd>aTwzdW5pY29ybnMh</Pwd> >>fail
++  <Pwd>s-]?ookrd34433fjkLLKI*</Pwd> >>fail
++<Pwd><>s-]?ookrd3><4433fjkLLKI*<</Pwd> >>fail
++<Pwd value="{$pass_val}" /> >>fail
++<Pwd></Pwd> >>pass
++ <Pwd value="{$pass_val}" /> >>fail
++ <Pwd value="i<3unicorns!" /> >>fail
++ <Pwd value='i<3unicorns!' /> >>fail
++  <Pwd></Pwd> >>pass
++<Pwd></Pwd><Pwd value="${muffins}" /> >>pass
++<Pswd value="i<3unicorns!" /> >>fail
++<Passwd value="i<3unicorns!" /> >>fail
++<PassVar value="i<3unicorns!" /> >>fail
++<Pass value="i<3unicorns!" /> >>fail
++<Pswrd value="i<3unicorns!" /> >>fail
++<Pwrd value="i<3unicorns!" /> >>fail
++<Pswd>fancypass</Pswd> >>fail
++<Passwd>fancypass</Passwd> >>fail
++<Pwrd>fancypass</Pwrd> >>fail
++<Pswrd>fancypass</Pswrd> >>fail
++<Pass>fancypass</Pass> >>fail
++<Variable> >>pass
++  <Name>|*|AppAppDatabaseConnectionString|*|</Name> >>pass
++  <Description>AppAppDatabaseConnectionString</Description> >>pass
++  <Value>Data Source=ABDOO013;User Id=ABCDEFGHI1;Password=Pa$$w0rd1</Value> >>fail
++    <Value>Data Source=ABDOO013;User Id=ABCDEFGHI1;Password=Paa&lt;$/$w0rd1</Value> >>fail
++  <TemplateDerivable>False</TemplateDerivable> >>pass
++  <EnvironmentName>Localhost</EnvironmentName> >>pass
++</Variable> >>pass
++<Password> >>pass
++</Password> >>pass
++<Passenger>bobbydroptables</Passenger> >>pass
++<Overpass>the bridge is out!!</Overpass> >>pass
++<User><Password></Password></User> >>pass
++<User><Username>Bobby</Username><Password/></User> >>pass
++Application/Connections/MessagingService/JMS/Illustrations/JMS_Password=#!Ab7HdJVaZhu6COOOGHsfew==>>fail
++Application/Connections/MessagingService/JMS/Illustrations/JMS_Password=#!Ab9HdJDaKhu6COOODCotnr== >>fail
++AFDQCommonServices/Connections/MessagingService/JMS/Application_AFDQ/JMS_Password=#!Cd3HdJDaAhu6COOOXZabcde==>>fail
++AFDQCommonServices/Connections/MessagingService/JMS/Application_AFDQ/JMS_Password=#!Cd2HdJDaZhu6COOOXZfghij== >>fail
++<user><Password>i<3unicorns!</Password></user> >>fail
++<account><Password>i<3unicorns!</Password></account> >>fail
++  <Account><Value>Data Source=ABDOO013;User Id=ABCDEFGHI1;Password=Pa$$w0rd1</Value></Account><Overpass>thebridgeisout!!</Overpass><Overpass>thebridgeisout!!</Overpass> >>fail
++  <Account><Value>Data Source=ABDOO013;User Id=ABCDEFGHI1;Password=Pa$$w0rd1<Value><Account><Overpass>thebridgeisout!!<Overpass><Overpass>thebridgeisout!!<Overpass> >>pass
 +   secret="${SECRET}" >>pass
 +secret="${SECRET}">>pass
 +my_secret="${MY_APP_SECRET}" >>pass
