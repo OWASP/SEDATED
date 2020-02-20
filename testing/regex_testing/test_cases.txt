@@ -791,4 +791,8 @@ MY_APP_PASSWORD: ${MY_APP_PASSWORD}>>pass
 +password='{pas$word1'>>fail
 +passwd = "{catchme}"; >>fail
 +passwd = "{catchme}";>>fail
++<password>%%JDBCPassword/UBIT/UBIT_DIA_EDIT_Password%%</password> >>pass
++<password>%%JDBCPassword/UBIT/UBIT_DIA_EDIT_Password%</password> >>fail
++<password>JDBCPasswor%d/UBIT%/UBIT_DIA_EDIT_Password%%</password> >>fail
++<password>%%HIBBY_JIBBY_Password%%</password> >>pass
 +passwd = "${variable}"; >>pass
