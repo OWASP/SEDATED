@@ -694,6 +694,9 @@ MY_APP_PASSWORD: ${MY_APP_PASSWORD}>>pass
 +<User><Username>Bobby</Username><Password/></User> >>pass
 +Application/Connections/MessagingService/JMS/Illustrations/JMS_Password=#!Ab7HdJVaZhu6COOOGHsfew==>>fail
 +Application/Connections/MessagingService/JMS/Illustrations/JMS_Password=#!Ab9HdJDaKhu6COOODCotnr== >>fail
++Application/Connections/MessagingService/JMS/Illustrations/JMS_Password=#!AbxHdJDaKhuxCOOODCotnr== >>fail
++Application/Connections/MessagingService/JMS/Illustrations/JMS_Password=#{variable_name}>>pass
++Application/Connections/MessagingService/JMS/Illustrations/JMS_Password=#{variable_name} >>pass
 +AFDQCommonServices/Connections/MessagingService/JMS/Application_AFDQ/JMS_Password=#!Cd3HdJDaAhu6COOOXZabcde==>>fail
 +AFDQCommonServices/Connections/MessagingService/JMS/Application_AFDQ/JMS_Password=#!Cd2HdJDaZhu6COOOXZfghij== >>fail
 +<user><Password>i<3unicorns!</Password></user> >>fail
@@ -783,8 +786,8 @@ MY_APP_PASSWORD: ${MY_APP_PASSWORD}>>pass
 + password={variable1}>>fail
 + password={gotcha!1dude>>fail
 + password={gotcha!1dude >>fail
-+ password={gotcha!1dude}>>fail
-+ password={gotcha!1dude} >>fail
++ password=#{gotcha!1dude>>fail
++ password=#gotchadude} >>fail
 +password="{pas$word1" >>fail
 +password="{pas$word1">>fail
 +password='{pas$word1' >>fail
@@ -796,3 +799,78 @@ MY_APP_PASSWORD: ${MY_APP_PASSWORD}>>pass
 +<password>JDBCPasswor%d/UBIT%/UBIT_DIA_EDIT_Password%%</password> >>fail
 +<password>%%HIBBY_JIBBY_Password%%</password> >>pass
 +passwd = "${variable}"; >>pass
++ password = >>pass
++ passwd = >>pass
++ pwd= >>pass
++ pass= >>pass
++ password =>>pass
++ passwd =>>pass
++ pwd=>>pass
++ pass=>>pass
++ pswd: >>pass
++ password  :     >>pass
++password:>>pass
++  <password>${passwd}</password> >>pass
++  <password>${pwd}</password> >>pass
++  <password>#{password}</password> >>pass
++  <password>#{pwd}</password> >>pass
++  <password>${pukswtt!</password> >>fail
++  <password>$uperwd}</password> >>fail
++  <password>x{password}</password> >>fail
++  <password>#pwd123</password> >>fail
++Dim password = $"{password}" >>pass
++Application/Connections/Database/ARRXY/password =           >>pass
++Application/Connections/Database/ARRXY/password=           >>pass
++Application/Connections/Database/ARRXY/password   =           >>pass
++Application/Connections/Database/ARRXY/password =      >>pass
++Application/Connections/Database/ARRXY/password =>>pass
++Application/Connections/Database/ARRXY/password=>>pass
++Application/Connections/Database/ARRXY/password =      , username = bobby,>>pass
++Application/Connections/Database/ARRXY/password=      , username = bobby,>>pass
++Application/Connections/Database/ARRXY/password =      ; username = bobby;>>pass
++Application/Connections/Database/ARRXY/password=      ; username = bobby;>>pass
++Application/Connections/Database/ARRXY/password =      ; username = bobby;>>pass
++Application/Connections/Database/ARRXY/password=      \ >>pass
++Application/Connections/Database/ARRXY/password=      // >>pass
++Application/Connections/Database/ARRXY/password=      # >>pass
++Application/Connections/Database/ARRXY/password =      \ >>pass
++Application/Connections/Database/ARRXY/password =      // >>pass
++Application/Connections/Database/ARRXY/password =      # >>pass
++    <!--<identity impersonate="true" userName="ad\bobby" password="#{Replace_Value}" />--> >>pass
++    <!--<identity impersonate="true" userName="ad\bobby" password="me&up@$#" />--> >>fail
++   <password>%%OnlineEndorsement/Constants/ICSIdentityUsername%%</password> >>pass
++        <password>%%OnlineEndorsement/Constants/ICS/IdentityPassword%%</password> >>pass
++Command32="Server=EasyBezy-t,1433;User=EasyBezy;PWD=#{Replace_Value};Initial Catalog=EasyBezy;Persist Security Info=True;MultipleActiveResultSets=True;USENT=Y;">>pass
++VersionComments="Data Source=awsbman-t,1433;Initial Catalog=Bman; Application Name=EasyOnline; User ID=BmanUsr;Password=^zoner!;" >>fail
++    <add key="ConnectionString_NewBusinessMT" value="Server=awsbman-t,1433;Database=NewBusinessMT;User ID=MiddleTier;Password=#{Replace_Value}" /> >>pass
++    <add key="ConnectionString_B2B" value="Server=awsbman-t,1433;Database=B2B;User ID=b2buser;Password=#{Replace_Value};Trusted_Connection=False" /> >>pass
++    <add key="ConnectionString_B2B" value="Server=awsbman-t,1433;Database=B2B;User ID=b2buser;Password=#gets0m3;Trusted_Connection=False" /> >>fail
++ password=#{password} >>pass
++ password=#{password >>fail
++ pwd = #abc123! >>fail
++ password={variable>>pass
++ password={variab1e >>fail
++<password>%%JDBCPassword/UBIT/UBIT_DIA_EDIT_Password%%</password> >>pass
++<password>%%JDBCPassword/UBIT/UBIT_DIA_EDIT_Password%</password> >>fail
++<password>JDBCPasswor%d/UBIT%/UBIT_DIA_EDIT_Password%%</password> >>fail
++<password>%%HIBBY_JIBBY_Password%%</password> >>pass
++pass: String "MyP@$$w0Rd">>fail
++password: String "$MyP@$$w0Rd">>fail
++pwd: String "${password_var}">>pass
++passwd: String "#{password_var}">>pass
++passwd: String "#{MyP@$$w0Rd">>fail
++pswd: String "#MyP@$$w0Rd}">>fail
++<Password value="{$pass_val}" /> >>fail
++<Password value="fancypass" /> >>fail
++<Password value="i<3unicorns!" /> >>fail
++<Password value='{$pass_val}' /> >>fail
++<Password value='fancypass' /> >>fail
++<Password value='i<3unicorns!' /> >>fail
++<Passwd value="#{pass_var}" /> >>pass
++<Pwd value="$password" /> >>pass
++<Passwd value="#i<3unicorns!" /> >>fail
++<Pswd value='#{pass_variable}' /> >>pass
++<Password value='$fancypass1' /> >>fail
++<Password value='#{i<3unicorns!' /> >>fail
++<Password value='#i<3unicorns!}' /> >>fail
++<Password value='${i<3unicorns!' /> >>fail
