@@ -144,12 +144,10 @@ MY_APP_PASSWORD: ${MY_APP_PASSWORD}>>pass
 +password: reallylongpassword9thatshould1notbe4flaggedtothisonething>>pass
 +password: password1>>fail
 +password: "$imeonsPa$$w0rdz123">>fail
-+password = password>>fail
-+password=password>>fail
++password=password>>pass
 +Password = "$345lsd6789" >>fail
 +env_password = $password>>pass
 +USER = "user"; PASSWORD = "thisIsMyP@$$w0rd1-Ha-Ha!"; USER_ID = "user_id";>>fail
-+USER = "user"; PASSWORD="thisIsMyP@$$w0rd1-Ha-Ha!"; USER_ID = "user_id";>>fail
 +USER = "user"; PASSWORD="thisIsMyP@$$w0rd1-Ha-Ha!"; USER_ID = "user_id";>>fail
 +USER = 'user' PASSWORD = 'thisIsMyP@$$w0rd1-Ha-Ha!' USER_ID = 'user_id'>>fail
 +PASSWD    - thisIsMyP@$$w0rd1-Ha-Ha!>>pass
@@ -469,6 +467,8 @@ MY_APP_PASSWORD: ${MY_APP_PASSWORD}>>pass
 +PASSWORD="${env.Password}";>>pass
 +PASSWORD=${password}>>pass
 +password=credentials.getPassword();>>pass
++password=getPassword();>>pass
++password=getPassword()>>pass
 +Have you heard of the password application that was being started by froderick?>>pass
 +PASSWD="${env.Passwd}";>>pass
 +PASSWD=${passwd}>>pass
@@ -576,8 +576,8 @@ MY_APP_PASSWORD: ${MY_APP_PASSWORD}>>pass
 +test_password >>pass
 +my_password = pa$$w0rd!123 >>fail
 +my_password = >>pass
-+_password = >>fail
-+_password= >>fail
++_password = >>pass
++_password= >>pass
 +Authorization: Basic QWxhZGRpbjpPcGVuU2VzYW1l >>fail
 +Authorization: Basic dXNlcm5hbWU6cGFzc3dvcmQ=>>fail
 +Authorization: Basic bTp5b3ViZQ== >>fail
@@ -642,14 +642,14 @@ MY_APP_PASSWORD: ${MY_APP_PASSWORD}>>pass
 +  <Password>aTwzdW5pY29ybnMh</Password> >>fail
 +  <password>s-]?ookrd34433fjkLLKI*</password> >>fail
 +<password><>s-]?ookrd3><4433fjkLLKI*<</password> >>fail
-+<Password value="{$pass_val}" /> >>fail
++<Password value="{pass_var}" /> >>pass
 +<Password value="fancypass" /> >>fail
 +<Password value="i<3unicorns!" /> >>fail
-+<Password value='{$pass_val}' /> >>fail
++<Password value='{pass_var}' /> >>pass
 +<Password value='fancypass' /> >>fail
 +<Password value='i<3unicorns!' /> >>fail
 +<Password></Password> >>pass
-+ <Password value="{$pass_val}" /> >>fail
++ <Password value="{pass_var}" /> >>pass
 +  <Password></Password> >>pass
 +<Password></Password><Password value="${muffins}" /> >>pass
 +<Pwd>fancyp@$$worD123!</Pwd> >>fail
@@ -660,9 +660,9 @@ MY_APP_PASSWORD: ${MY_APP_PASSWORD}>>pass
 +  <Pwd>aTwzdW5pY29ybnMh</Pwd> >>fail
 +  <Pwd>s-]?ookrd34433fjkLLKI*</Pwd> >>fail
 +<Pwd><>s-]?ookrd3><4433fjkLLKI*<</Pwd> >>fail
-+<Pwd value="{$pass_val}" /> >>fail
++<Pwd value="{pass_val}" /> >>pass
 +<Pwd></Pwd> >>pass
-+ <Pwd value="{$pass_val}" /> >>fail
++ <Pwd value="{pass_var}" /> >>pass
 + <Pwd value="i<3unicorns!" /> >>fail
 + <Pwd value='i<3unicorns!' /> >>fail
 +  <Pwd></Pwd> >>pass
@@ -737,7 +737,6 @@ MY_APP_PASSWORD: ${MY_APP_PASSWORD}>>pass
 +my_secret: '${MY_APP_SECRET}' >>pass
 +my_secret: '${MY_APP_SECRET}'>>pass
 +temp-secret = 'secret_value';>>fail
-+temp-secret = 'secret_value';>>fail
 +secret="thisismysecret123appkey">>fail
 +userid:0001,secret:thisismysecret123getit,username:bobbytables>>fail
 +password = $passwordspaceafter >>pass
@@ -783,7 +782,7 @@ MY_APP_PASSWORD: ${MY_APP_PASSWORD}>>pass
 +spring.datasource.password='$unic0Rn<3{e}r'>>fail
 + password={variable} >>pass
 + password={variable>>pass
-+ password={variable1}>>fail
++ password={variable_pwd}>>pass
 + password={gotcha!1dude>>fail
 + password={gotcha!1dude >>fail
 + password=#{gotcha!1dude>>fail
@@ -792,8 +791,8 @@ MY_APP_PASSWORD: ${MY_APP_PASSWORD}>>pass
 +password="{pas$word1">>fail
 +password='{pas$word1' >>fail
 +password='{pas$word1'>>fail
-+passwd = "{catchme}"; >>fail
-+passwd = "{catchme}";>>fail
++passwd = "{catch_var}"; >>pass
++passwd = "{catch_var}";>>pass
 +<password>%%JDBCPassword/UBIT/UBIT_DIA_EDIT_Password%%</password> >>pass
 +<password>%%JDBCPassword/UBIT/UBIT_DIA_EDIT_Password%</password> >>fail
 +<password>JDBCPasswor%d/UBIT%/UBIT_DIA_EDIT_Password%%</password> >>fail
@@ -829,7 +828,6 @@ MY_APP_PASSWORD: ${MY_APP_PASSWORD}>>pass
 +Application/Connections/Database/ARRXY/password=      , username = bobby,>>pass
 +Application/Connections/Database/ARRXY/password =      ; username = bobby;>>pass
 +Application/Connections/Database/ARRXY/password=      ; username = bobby;>>pass
-+Application/Connections/Database/ARRXY/password =      ; username = bobby;>>pass
 +Application/Connections/Database/ARRXY/password=      \ >>pass
 +Application/Connections/Database/ARRXY/password=      // >>pass
 +Application/Connections/Database/ARRXY/password=      # >>pass
@@ -848,24 +846,13 @@ MY_APP_PASSWORD: ${MY_APP_PASSWORD}>>pass
 + password=#{password} >>pass
 + password=#{password >>fail
 + pwd = #abc123! >>fail
-+ password={variable>>pass
 + password={variab1e >>fail
-+<password>%%JDBCPassword/UBIT/UBIT_DIA_EDIT_Password%%</password> >>pass
-+<password>%%JDBCPassword/UBIT/UBIT_DIA_EDIT_Password%</password> >>fail
-+<password>JDBCPasswor%d/UBIT%/UBIT_DIA_EDIT_Password%%</password> >>fail
-+<password>%%HIBBY_JIBBY_Password%%</password> >>pass
-+pass: String "MyP@$$w0Rd">>fail
 +password: String "$MyP@$$w0Rd">>fail
 +pwd: String "${password_var}">>pass
 +passwd: String "#{password_var}">>pass
 +passwd: String "#{MyP@$$w0Rd">>fail
 +pswd: String "#MyP@$$w0Rd}">>fail
-+<Password value="{$pass_val}" /> >>fail
-+<Password value="fancypass" /> >>fail
-+<Password value="i<3unicorns!" /> >>fail
-+<Password value='{$pass_val}' /> >>fail
-+<Password value='fancypass' /> >>fail
-+<Password value='i<3unicorns!' /> >>fail
++<Password value='{pass_val}' /> >>pass
 +<Passwd value="#{pass_var}" /> >>pass
 +<Pwd value="$password" /> >>pass
 +<Passwd value="#i<3unicorns!" /> >>fail
@@ -874,3 +861,150 @@ MY_APP_PASSWORD: ${MY_APP_PASSWORD}>>pass
 +<Password value='#{i<3unicorns!' /> >>fail
 +<Password value='#i<3unicorns!}' /> >>fail
 +<Password value='${i<3unicorns!' /> >>fail
++token=`curl -X POST -H "X-Source-Namespace: engineering" -d '{ "password": "${GIT_PASSWORD}" }' ${sourceAPIUrl}/v1/auth/engineering/engineering/login/${GIT_USERNAME} | jq -r .auth.client_token` >>pass
++'{ "password": "${GIT_PASSWORD}" }' >>pass
++'{ "password": "${GIT_PASSWORD}" }' ${sourceAPIUrl}/v1/auth/vl >>pass
++'{ "password": "${GIT_PASSWORD}" }' sourceAPIUrl/v1/auth/vl >>pass
++'{ "password": "${GIT_PASSWORD}" }' ppsourceAPIUrpppv1pauthpvl >>pass
++'{ "password": "${GIT_PASSWORD}" }' sourceAPIUrl/vl/auth/vabasdfadfafasdfafd asdf asdfasdf asdf asf asfsdafds fsd fsdfasf asfasf as1 >>pass
++'{ "password": "${GIT_PASSWORD}" }' sourceAPIUrl/vl/auth/vabasdfadfafasdfafd asdf asdfasdf asdf asf asfsdafds fsd fsdfasf asfasf as >>pass
++'{ "password": "${GIT_PASSWORD}" }' sourceAPIUrl/vl/auth/vabasdfadfafasdfafd asdf asdfasdf asdf asf asfsdafds fsd fsdfasf asfasf as"1 >>pass
++'{ "password": "${GIT_PASSWORD}" }' ${sourceAPIUrl}/v/auth/vl >>pass
++{ "password": "${GIT_PASSWORD}" }' ${sourceAPIUrl}/v1/auth/sourceAPIUrl/engineering/login/${GIT_USERNAME} | jq -r .auth.client_token` >>pass
++                    token=`curl -X POST -H "X-Source-Namespace: engineer" -d '{ "password": "${GIT_PASSWORD}" }' ${sourceAPIUrl}/v1/auth/engineering/engineering/login/${GIT_USERNAME} | jq -r .auth.client_token`>>pass
++%ghd-d00-etl-platform ALL= NOPASSWD: /usr/bin/su - hd-d00-etl-platform >>pass
++%ghd-d00-etl-platform ALL= NOPASSWD: /usr/bin/su - hd-doo-etl-platform >>pass
++CAcreateserial -passin pass:$CAPASSWORD -sha256 >>pass
++CAcreateserial -passin pass:$CAPASSWORD -shaabc >>pass
++token=`curl -X POST -H "X-Source-Namespace: engineering" -d '{ "password": "${GIT_PASSWORD}" }' ${sourceAPIUrl}/v1/auth/src-engineer-a-prd/engineer/login/${GIT_USERNAME} | jq -r .auth.client_token` >>pass
++'{ "password": "${GIT_PASSWORD}" }' sourceAPIUrl >>pass
++'{ "password": "${GIT_PASSWORD}" }' ppsourceAPIUrlIUrlpp/vl/auth/vabasdfadfafasdfafd asdf asdfasdf asdf asf asfsdafds fsd fsdfasf asfasf as1 >>pass
++{ "password": "${GIT_PASSWORD}" }' ${sourceAPIUrl}/v1/auth/src-cloud-prd/engineering/login/${GIT_USERNAME} | jq -r .auth.client_token` >>pass
++"client_secret":"why_hello-thereNumber1ar" >>fail
++client_secret:why_hello-thereNumber1ar>>fail
++client_secret:why_hello-thereNumberlar>>pass
++"client_secret":why_hello-thereNumber1ar >>pass
++client_secret:"why_hello-thereNumber1ar" >>fail
++"Client_Secret":"why_hello-thereNumber1ar" >>fail
++authorization: basic QWxhZGRpbjpPcGVuU2VzYW1l >>pass
++my+_auth = blahblahblah >>pass
++my+_AUTH = blahblahblah >>pass
++_auth = blahblahblah >>fail
++_AUTH = blahblahblah >>fail
++CAcreateserial -passin pass=$CAPASSWORD -sha256 >>pass
++pass=$variable_here something-else-here, thenANumber=1 >>pass
++pwd_variable_value = variable, user_variable_value = "billyBob556", favFood = "ice cream",>>pass
++pwd_variable_value = $variable, user_variable_value = "billyBob556", favFood = "ice cream",>>pass
++pwd_variable_value="$variable", user_variable_value = "billyBob556", favFood = "ice cream",>>pass
++pwd_variable_value="${variable}", user_variable_value = "billyBob556", favFood = "ice cream",>>pass
++pwd_variable_value="#{variable}", user_variable_value = "billyBob556", favFood = "ice cream",>>pass
++pwd_variable_value="{{variable}}", user_variable_value = "billyBob556", favFood = "ice cream",>>pass
++pwd_variable_value="{cari1able", user_variable_value = "billyBob556", favFood = "ice cream",>>fail
++pwd_variable_value="$uper1able", user_variable_value = "billyBob556", favFood = "ice cream",>>fail
++pwd_variable_value="Super1$able", user_variable_value = "billyBob556", favFood = "ice cream",>>fail
++passwd = "{variable}"; >>pass
++passwd = "{variable}";>>pass
++ <Password value="{$pass_val}" /> >>pass
++<Passwd value="{pass_val}" /><User value="billyBob" /><Location value="1234 Johnny Ave." >>pass
++<Pswd value="{{pass_val}}" /><User value="billyBob" /><Location value="1234 Johnny Ave."  >>pass
++<Pwd value="${pass_val}" /><User value="billyBob" /><Location value="1234 Johnny Ave."  >>pass
++<Password value="#{pass_val}" /><User value="billyBob" /><Location value="1234 Johnny Ave."  >>pass
++<Passwd primary="{pass_val}" /><User value="billyBob" /><Location value="1234 Johnny Ave." >>pass
++<Pswd primary="{{pass_val}}" /><User value="billyBob" /><Location value="1234 Johnny Ave."  >>pass
++<Pwd primary="${pass_val}" /><User value="billyBob" /><Location value="1234 Johnny Ave."  >>pass
++<Password primary="#{pass_val}" /><User value="billyBob" /><Location value="1234 Johnny Ave."  >>pass
++<Secret primary="#{pass_val}" /><User value="billyBob" /><Location value="1234 Johnny Ave."  >>pass
++<secret primary="${pass_val}" /><User value="billyBob" /><Location value="1234 Johnny Ave."  >>pass
++<secret primary="hyugeV@lu3" /><User value="billyBob" /><Location value="1234 Johnny Ave." >>fail
++my_auth = blahblahblah >>pass
++my_AUTH = blahblahblah >>pass
++CAcreateserial -passin pass=$CAPASSWORD -shaabc >>pass
++password = ${GIT_PASSWORD}, user = ${GIT_USER}, url = https://woopwoopnotarealsite.com/10min >>pass
++password = $GIT_PASSWORD, user = papageorgio, url = https://woopwoopnotarealsite.com/10min >>pass
++password = "{{variable_injection}}", user = papageorgio, url = https://woopwoopnotarealsite.com/10min >>pass
++password = "{{gotmy-secrethere}}", user = papageorgio, url = https://woopwoopnotarealsite.com/10min >>pass
++passwd={{variable_injection}}, user = papageorgio, url = https://woopwoopnotarealsite.com/10min >>pass
++ntlmCredential.setPassword("$test_variable");location.setLocation("Origami Lane");visitationFrequency(12); >>pass
++ntlmCredential.setPassword("${test_variable}");location.setLocation("Origami Lane");visitationFrequency(12); >>pass
++ntlmCredential.setPassword("#{test_variable}");location.setLocation("Origami Lane");visitationFrequency(12); >>pass
++ntlmCredential.setPassword("{{test_variable}}");location.setLocation("Origami Lane");visitationFrequency(12); >>pass
++ntlmCredential.setPassword(test_variable);location.setLocation("Origami Lane");visitationFrequency(12); >>pass
++ntlmCredential.setPassword("$uper_secr3t!");location.setLocation("Origami Lane");visitationFrequency(12); >>fail
++ntlmCredential.setPassword("${trickyP@$$1");location.setLocation("Origami Lane");visitationFrequency(12); >>fail
++ntlmCredential.setPassword("#{trickyP@$$1");location.setLocation("Origami Lane");visitationFrequency(12); >>fail
++ntlmCredential.setPassword("{{secret_variable}}");location.setLocation("Origami Lane");visitationFrequency(12); >>pass
++password: String "$test_variable", user: String "scottie", location: String "Botswana", address: String "123 Not Real Ave.",>>pass
++password: String "${test_variable}", user: String "scottie", location: String "Botswana", address: String "123 Not Real Ave.",>>pass
++password: String "#{test_variable}", user: String "scottie", location: String "Botswana", address: String "123 Not Real Ave.",>>pass
++password: String "{{test_variable}}", user: String "scottie", location: String "Botswana", address: String "123 Not Real Ave.",>>pass
++password: String "$uper_secr3t!", user: String "scottie", location: String "Botswana", address: String "123 Not Real Ave.",>>fail
++password: String "${trickyP@$$1", user: String "scottie", location: String "Botswana", address: String "123 Not Real Ave.",>>fail
++password: String "#{trickyP@$$1", user: String "scottie", location: String "Botswana", address: String "123 Not Real Ave.",>>fail
++password: String "{{secret_variable}}", user: String "scottie", location: String "Botswana", address: String "123 Not Real Ave.",>>pass
++  <password>${re@lvalU3</password><location>${address}</location><visitation_code>7</visitiation_code> >>fail
++  <password>%%vale-ofmyP@$shere</password><location>%%address%%</location><visitation_code>7</visitiation_code> >>fail
++  <password>%%{re@lvalU3</password><visitation_code>7</visitiation_code><location>%%address%%</location> >>fail
++  <password>%%variable_here%%</password><visitation_code>7</visitiation_code><location>%%address%%</location> >>pass
++password: ${GIT_PASSWORD}, user = ${GIT_USER}, url = https://woopwoopnotarealsite.com/10min >>pass
++pwd: $GIT_PASSWORD, user = papageorgio, url = https://woopwoopnotarealsite.com/10min >>pass
++passwd: ${GIT_PASSWORD}, user = papageorgio, url = https://woopwoopnotarealsite.com/10min >>pass
++password: #{GIT_PASSWORD}, user = #{username}, url = https://woopwoopnotarealsite.com/10min >>pass
++password: #{$ecretV@lu3, user = #{username}, url = https://woopwoopnotarealsite.com/10min >>fail
++passwd: {{variable_injection}}, user = papageorgio, url = https://woopwoopnotarealsite.com/10min >>pass
++secret: {{variable_injection}}, user = papageorgio, url = https://woopwoopnotarealsite.com/10min >>pass
++<Account><Value>Data Source=ABDOO013;User Id=ABCDEFGHI1;Password=${passvariable}</Value></Account><Overpass>thebridgeisout!!</Overpass><Overpass>thebridgeisout!!</Overpass> >>pass
++password = password1;lolz >>fail
++password = $password; >>pass
++password = ${password}; >>pass
++password = #{password}; >>pass
++pwd = pa$$word,kjl >>fail
++password = $password1 >>fail
++pswd = $uperStrong1! >>fail
++pwd = password; >>pass
++pwd = password>>pass
++password = password >>pass
++password = {password} >>pass
++password = $uperStrongPassword >>pass
++password = ${uperStrongPassword} >>pass
++password = Super$trongPassword >>fail
++password = password1 >>fail
++password = p@ssw0rd >>fail
++password = myPa$$word1 >>fail
++password = $uperStr0ngPassword >>fail
++password = $password_variable >>pass
++<Account><Value>Data Source=ABDOO013;User Id=ABCDEFGHI1;Password="Pa$$w0rd1"</Value></Account></Overpass>thebridgeisout!!</Overpass><Overpass>thebridgeisout!!</Overpass> >>fail
++<Account><Value>Data Source=ABDOO013;User Id=ABCDEFGHI1;Password="${passvariable}"</Value></Account><Overpass>thebridgeisout!!</Overpass><Overpass>thebridgeisout!!</Overpass> >>pass
++password = "password1";lolz >>fail
++password = "$password"; >>pass
++password = "${password}"; >>pass
++password = "#{password}"; >>pass
++pwd = "pa$$wordkjl" >>fail
++password = "$password1" >>fail
++pswd = "$uperStrong1!" >>fail
++pwd = "password"; >>fail
++pwd = "password" >>fail
++password = "password" >>fail
++password = "{password}" >>pass
++password = "$password_variable" >>pass
++password = "$password_variable_longer" >>pass
++password = "$password-variable" >>pass
++password = "${password_variable}" >>pass
++password = "$uperP@ssword" >>fail
++password = "$toppingi$h@rd" >>fail
++password = "$uperStrongPassword" >>pass
++password = "${uperStrongPassword}" >>pass
++password = "Super$trongPassword" >>fail
++password = "password1" >>fail
++password = "p@ssw0rd" >>fail
++password = "myPa$$word1" >>fail
++password = "$uperStr0ngPassword" >>fail
++passwd="{{variable_injection}}", user = papageorgio, url = https://woopwoopnotarealsite.com/10min >>pass
++temp-secret = secret_variable; >>pass
++  <Account><Value>Data Source=ABDOO013;User Id=ABCDEFGHI1;Password="${password_variable}"</Value><Account><Overpass>thebridgeisout!!<Overpass><Overpass>thebridgeisout!!<Overpass> >>pass
++  <Account><Value>Data Source=ABDOO013;User Id=ABCDEFGHI1;Password=${password_variable}</Value><Account><Overpass>thebridgeisout!!<Overpass><Overpass>thebridgeisout!!<Overpass> >>pass
++  <Account><Value>Data Source=ABDOO013;User Id=ABCDEFGHI1;Password="$password_variable"</Value><Account><Overpass>thebridgeisout!!<Overpass><Overpass>thebridgeisout!!<Overpass> >>pass
++  <Account><Value>Data Source=ABDOO013;User Id=ABCDEFGHI1;Password=$password_variable;</Value><Account><Overpass>thebridgeisout!!<Overpass><Overpass>thebridgeisout!!<Overpass> >>pass
++  <Account><Value>Data Source=ABDOO013;User Id=ABCDEFGHI1;Password="${password_variable}";more=garbage;some=thing_else;</Value><Account><Overpass>thebridgeisout!!<Overpass><Overpass>thebridgeisout!!<Overpass> >>pass
++  <Account><Value>Data Source=ABDOO013;User Id=ABCDEFGHI1;Password=${password_variable};more=garbage;some=thing_else;</Value><Account><Overpass>thebridgeisout!!<Overpass><Overpass>thebridgeisout!!<Overpass> >>pass
++  <Account><Value>Data Source=ABDOO013;User Id=ABCDEFGHI1;Password="$password_variable";more=garbage;some=thing_else;</Value><Account><Overpass>thebridgeisout!!<Overpass><Overpass>thebridgeisout!!<Overpass> >>pass
++  <Account><Value>Data Source=ABDOO013;User Id=ABCDEFGHI1;Password=$password_variable;more=garbage;some=thing_else;</Value><Account><Overpass>thebridgeisout!!<Overpass><Overpass>thebridgeisout!!<Overpass> >>pass
