@@ -781,7 +781,9 @@ MY_APP_PASSWORD: ${MY_APP_PASSWORD}>>pass
 +spring.datasource.password='$unic0Rn<3{er'>>fail
 +spring.datasource.password='$unic0Rn<3{e}r'>>fail
 + password={variable} >>pass
-+ password={variable>>pass
++ password={variable>>fail
++ password = @yourHouse >>fail
++ password = 1@boomS0n >>fail
 + password={variable_pwd}>>pass
 + password={gotcha!1dude>>fail
 + password={gotcha!1dude >>fail
@@ -1008,3 +1010,5 @@ MY_APP_PASSWORD: ${MY_APP_PASSWORD}>>pass
 +  <Account><Value>Data Source=ABDOO013;User Id=ABCDEFGHI1;Password=${password_variable};more=garbage;some=thing_else;</Value><Account><Overpass>thebridgeisout!!<Overpass><Overpass>thebridgeisout!!<Overpass> >>pass
 +  <Account><Value>Data Source=ABDOO013;User Id=ABCDEFGHI1;Password="$password_variable";more=garbage;some=thing_else;</Value><Account><Overpass>thebridgeisout!!<Overpass><Overpass>thebridgeisout!!<Overpass> >>pass
 +  <Account><Value>Data Source=ABDOO013;User Id=ABCDEFGHI1;Password=$password_variable;more=garbage;some=thing_else;</Value><Account><Overpass>thebridgeisout!!<Overpass><Overpass>thebridgeisout!!<Overpass> >>pass
++ password = 1password >>fail
++ password = "1password" >>fail
