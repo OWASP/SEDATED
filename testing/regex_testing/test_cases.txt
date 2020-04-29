@@ -1012,3 +1012,45 @@ MY_APP_PASSWORD: ${MY_APP_PASSWORD}>>pass
 +  <Account><Value>Data Source=ABDOO013;User Id=ABCDEFGHI1;Password=$password_variable;more=garbage;some=thing_else;</Value><Account><Overpass>thebridgeisout!!<Overpass><Overpass>thebridgeisout!!<Overpass> >>pass
 + password = 1password >>fail
 + password = "1password" >>fail
++password: 1password >>fail
++password: 1password >>fail
++password: password >>pass
++password: $uperStr0ng >>fail
++password :   1$password >>fail
++password : ${LA_PASSWORD} >>pass
++password : ${L7_PASSWORD} >>pass
++password : #{L7_PASSWORD} >>pass
++password : ${1password >>fail
++password : #{1password >>fail
++password : $1password} >>fail
++password : #1password} >>fail
++password :    $1 >>pass
++password: "${SecretVar1}", user: "#{username}", url: https://woopwoopnotarealsite.com/10min >>pass
++password: #{SecretVar1}, user: #{username}, url: https://woopwoopnotarealsite.com/10min >>pass
++password = "${SecretVar1}", user = "#{username}", url = https://woopwoopnotarealsite.com/10min >>pass
++password = #{SecretVar1}, user = #{username}, url = https://woopwoopnotarealsite.com/10min >>pass
++password: #{$ecretV@lu3, user: #{username}, url: https://woopwoopnotarealsite.com/10min >>fail
++password: ${$ecretV@lu3, user: #{username}, url: https://woopwoopnotarealsite.com/10min >>fail
++password: {$ecretV@lu3, user: #{username}, url: https://woopwoopnotarealsite.com/10min >>fail
++password: #{$ecretV@lu3, user: #{username}, url: https://woopwoopnotarealsite.com/10min >>fail
++password = {$ecretV@lu3, user: #{username}, url: https://woopwoopnotarealsite.com/10min >>fail
++password = ${$ecretV@lu3, user: #{username}, url: https://woopwoopnotarealsite.com/10min >>fail
++password: "#{$ecretV@lu3", user: "#{username}", url: https://woopwoopnotarealsite.com/10min >>fail
++password: "${$ecretV@lu3", user: "#{username}", url: https://woopwoopnotarealsite.com/10min >>fail
++password: "{$ecretV@lu3", user: "#{username}", url: https://woopwoopnotarealsite.com/10min >>fail
++password: "#{$ecretV@lu3", user: "#{username}", url: https://woopwoopnotarealsite.com/10min >>fail
++password = "{$ecretV@lu3", user = "#{username}", url = https://woopwoopnotarealsite.com/10min >>fail
++password = "${$ecretV@lu3", user = "#{username}", url = https://woopwoopnotarealsite.com/10min >>fail
++<Password value='{eor4duder1!' data='{user_var}' /> >>fail
++<Password value='{variable1}' data='{user_var}' /> >>pass
++<Password value='${eor4duder1!' data='{user_var}' /> >>fail
++<Password value='${variable1}' data='{user_var}' /> >>pass
++<Password value='#{eor4duder1!' data='{user_var}' /> >>fail
++<Password value='#{variable1}' data='{user_var}' /> >>pass
++password: String "${test_value", user: String "${variable}", location: String "Botswana", address: String "123 Not Real Ave.",>>fail
++password: String "#{test_value", user: String "#{variable}", location: String "Botswana", address: String "123 Not Real Ave.",>>fail
++password: String "{{test_value", user: String "{{variable}}", location: String "Botswana", address: String "123 Not Real Ave.",>>fail
++<Password primary="${pass_val1" /><User value="${variable}" /><Location value="1234 Johnny Ave."  >>fail
++<Secret primary="#{pass_val1" /><User value="#{variable}" /><Location value="1234 Johnny Ave."  >>fail
++<Password primary="${pass_var}" /><User value="${variable}" /><Location value="1234 Johnny Ave."  >>pass
++<Secret primary="#{pass_var}" /><User value="#{variable}" /><Location value="1234 Johnny Ave."  >>pass
