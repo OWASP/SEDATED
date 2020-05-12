@@ -375,8 +375,8 @@ MY_APP_PASSWORD: ${MY_APP_PASSWORD}>>pass
 +USER = 'user' PASS = 'thisIsMyP@$$w0rd1-Ha-Ha!' USER_ID = 'user_id'>>fail
 +xoxp-12345678901-123456789012-123456789012-dc82b1510a492cf2087dd72cdb9860fb>>fail
 +XoXp-12345678901-123456789012-123456789012-dc82b1510a492cf2087dd72cdb9860fb>>pass
-+"client_secret": "abcdabcdabcdabcdabcdabcdabcdabcdabcdabcd",>>fail
-+{"client_secret": "abcdabcdabcdabcdabcdabcdabcdabcdabcdabcd","scopes": ["public_repo"],"note": "admin script"}>>fail
++"client_secret": "1bcdabcdabcdabcdabcdabcdabcdabcdabcdabcd",>>fail
++{"client_secret": "abcdabcdabcdabcdabcdabcdabcdabcdabcdabc1","scopes": ["public_repo"],"note": "admin script"}>>fail
 +AWS_KEY = 'ASIA12ABCD34EFGH56IJ';>>fail
 +AWS_KEY = "AKIA123456789EXAMPLE";>>fail
 +		AWS_KEY: AKIA123456789EXAMPLE>>fail
@@ -504,8 +504,8 @@ MY_APP_PASSWORD: ${MY_APP_PASSWORD}>>pass
 +<add key="ImagingFTPHostPassword" value="${PASSWORD}" /> >>pass
 +<Property Name="Password" Value=${PASSWORD} /> >>pass
 +<add key="ImagingFTPHostPassword" value=${PASSWORD} /> >>pass
-+password = @"dfdfdf">>fail
-+password:@"credentials">>fail
++password = @"4dfdf#df">>fail
++password:@"p@ssw0rd1">>fail
 +ntlmCredential.setPassword("testPassW0rd"); >>fail
 +ntlmCredential.setPassword('testPassW0rd');>>fail
 +ntlmCredential.setPasswd("testPassW0rd"); >>fail
@@ -643,10 +643,10 @@ MY_APP_PASSWORD: ${MY_APP_PASSWORD}>>pass
 +  <password>s-]?ookrd34433fjkLLKI*</password> >>fail
 +<password><>s-]?ookrd3><4433fjkLLKI*<</password> >>fail
 +<Password value="{pass_var}" /> >>pass
-+<Password value="fancypass" /> >>fail
++<Password value="fancypass" /> >>pass
 +<Password value="i<3unicorns!" /> >>fail
 +<Password value='{pass_var}' /> >>pass
-+<Password value='fancypass' /> >>fail
++<Password value='fancypass' /> >>pass
 +<Password value='i<3unicorns!' /> >>fail
 +<Password></Password> >>pass
 + <Password value="{pass_var}" /> >>pass
@@ -736,7 +736,7 @@ MY_APP_PASSWORD: ${MY_APP_PASSWORD}>>pass
 +my_other_secret: '$MY_APP_SECRET'>>pass
 +my_secret: '${MY_APP_SECRET}' >>pass
 +my_secret: '${MY_APP_SECRET}'>>pass
-+temp-secret = 'secret_value';>>fail
++temp-secret = 'secret_value';>>pass
 +secret="thisismysecret123appkey">>fail
 +userid:0001,secret:thisismysecret123getit,username:bobbytables>>fail
 +password = $passwordspaceafter >>pass
@@ -983,9 +983,9 @@ MY_APP_PASSWORD: ${MY_APP_PASSWORD}>>pass
 +pwd = "pa$$wordkjl" >>fail
 +password = "$password1" >>fail
 +pswd = "$uperStrong1!" >>fail
-+pwd = "password"; >>fail
-+pwd = "password" >>fail
-+password = "password" >>fail
++pwd = "password"; >>pass
++pwd = "password" >>pass
++password = "password" >>pass
 +password = "{password}" >>pass
 +password = "$password_variable" >>pass
 +password = "$password_variable_longer" >>pass
@@ -1054,3 +1054,79 @@ MY_APP_PASSWORD: ${MY_APP_PASSWORD}>>pass
 +<Secret primary="#{pass_val1" /><User value="#{variable}" /><Location value="1234 Johnny Ave."  >>fail
 +<Password primary="${pass_var}" /><User value="${variable}" /><Location value="1234 Johnny Ave."  >>pass
 +<Secret primary="#{pass_var}" /><User value="#{variable}" /><Location value="1234 Johnny Ave."  >>pass
++ password = usr/bin/local/pwd >>pass
++ password = p@ssword >>fail
++ password = password >>pass
++ password = USER_CLIENT_PASSWORD >>pass
++ password = passw0rd >>fail
++ password = 1password >>fail
++ password = $password >>pass
++ password = ${password} >>pass
++ password = $password1 >>fail
++ password = "usr/bin/local/pwd" >>pass
++ password = "p@ssword" >>fail
++ password = "password" >>pass
++ password = "USER_CLIENT_PASSWORD" >>pass
++ password = "passw0rd" >>fail
++ password = "1password" >>fail
++ password = "$password" >>pass
++ password = "${password}" >>pass
++ password = "$password1" >>fail
++ secret_key value="yolo123" >>fail
++ secret_key value="secretKeyVariable" >>pass
++ secret_key value="SECRET_KEY_VARIABLE" >>pass
++ secret_key value="$VARIABLE" >>pass
++ secret_key value="$uperStrong1" >>fail
++ secret_key value="usr/bin/local/key" >>pass
++ secret_key value="${SECRET_KEY}" >>pass
++ pwd primary="yolo123" >>fail
++ pwd primary="secretKeyVariable" >>pass
++ pwd primary="SECRET_KEY_VARIABLE" >>pass
++ pwd primary="$VARIABLE" >>pass
++ pwd primary="$uperStrong1" >>fail
++ pwd primary="usr/bin/local/key" >>pass
++ pwd primary="${SECRET_KEY}" >>pass
++ setPassword("yolo123"); >>fail
++ setPassword("secretPassVariable"); >>pass
++ setPassword("SECRET_PWD_VARIABLE"); >>pass
++ setPassword("$VARIABLE"); >>pass
++ setPassword("$uperStrong1"); >>fail
++ setPassword("usr/bin/local/pwd"); >>pass
++ setPassword("${SECRET_PWD}"); >>pass
++ secret: String "yolo123" >>fail
++ secret: String "secretKeyVariable" >>pass
++ secret: String "SECRET_KEY_VARIABLE" >>pass
++ secret: String "$VARIABLE" >>pass
++ secret: String "$uperStrong1" >>fail
++ secret: String "usr/bin/local/key" >>pass
++ secret: String "${SECRET_KEY}" >>pass
++ password:1password >>fail
++ api_key="${api_key}" >>pass
++ api_key="api_key_variable" >>pass
++ api_key="apiKeyVariable" >>pass
++ accessKey = "access_key" >>pass
++ secret-key: "secretKeyVariable" >>pass
++ api_key="$api_key_variable" >>pass
++ api_key="$apiKeyVariable" >>pass
++ accessKey = "$access_key" >>pass
++ secret-key: "$secretKeyVariable" >>pass
++ api_key="${api_key_variable}" >>pass
++ api_key="${apiKeyVariable}" >>pass
++ accessKey = "${access_key}" >>pass
++ secret-key: "${secretKeyVariable}" >>pass
++ api_key="#{api_key_variable}" >>pass
++ api_key="#{apiKeyVariable}" >>pass
++ accessKey = "#{access_key}" >>pass
++ secret-key: "#{secretKeyVariable}" >>pass
++ applicationKey:"my_app_key" >>pass
++AppKey = "AppKeyVariable" >>pass
++ apiKey: "/usr/bin/local/apikey" >>pass
++<property name="MANAGE_PREF_SECRET_KEY" value="ManagePreferenceKey" /> >>pass
++function(y){return var le={accesskey:"accessKey",allowfullscreen:"allowFullScreen",allowtransparency:"allowTransparency", >>pass
++<add key="AppSecretId" value="c75e7b5c-994d-2bee-7c98-c8c9f4688ee4" /> >>fail
++ applicationKey:"m1bsdgfjllcd" >>fail
++ api_key="abc1def2ghi3jkl4_5769rrg" >>fail
++ secret-key: "p@ndasAreCute" >>fail
++ secret-key = "pandasAre$oCute" >>fail
++ secret-key = 'pandasAreCut3' >>fail
++AppKey = "App2-k3569_ryfjd7" >>fail
