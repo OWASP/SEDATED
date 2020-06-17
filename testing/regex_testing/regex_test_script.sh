@@ -41,11 +41,11 @@
 ####
 
 ### ! MUST USE GNU GREP, BSD GREP WILL GIVE ERRONEOUS RESULTS ! ###
-### ! SEDATED℠ USES GNU GREP, BSD GREP DOES NOT HAVE A -P FLAG ! ###
+### ! SEDATED USES GNU GREP, BSD GREP DOES NOT HAVE A -P FLAG ! ###
 
 function PRINT_SEDATED() {
   echo "  ___ ___ ___   _ _____ ___ ___  "
-  echo " / __| __|   \ / \_   _| __|   \ SM"
+  echo " / __| __|   \ / \_   _| __|   \ (R)"
   echo " \__ \ _|| |) / A \| | | _|| |) |"
   echo " |___/___|___/_/ \_\_| |___|___/ "
   echo " https://github.com/owasp/sedated"
@@ -75,6 +75,7 @@ while read line; do
   regex_check=$( echo "$KEY" | grep -P "${regex_string}" ) # gnu grep for lines that match regexes
         if [[ "$regex_check" ]]; then # returns TRUE if the regexes can catch/match the line
           if [[ "$VAL" == "fail" ]]; then # it was supposed to be caught by the regexes
+            ((fail_counter+=1))
             echo "-------------- TRUE REJECT: VERIFIED -----------------------------"
           else # supposed to be caught by the regexes, but was not
             echo "+++++++++++++++ ERROR:EXPECTED SUCCESS, GOT FAIL +++++++++++++++++"
@@ -82,6 +83,7 @@ while read line; do
           fi
         else
           if [[ "$VAL" == "pass" ]]; then # it was not supposed to be caught by the regexes
+            ((pass_counter+=1))
             echo "-------------- TRUE ACCEPT: VERIFIED -----------------------------"
           else # not supposed to be caught by the regexes, but was
             echo "+++++++++++++++ ERROR:EXPECTED FAIL, GOT SUCCESS +++++++++++++++++"
@@ -95,6 +97,8 @@ echo "##################################################################"
 if [[ "${#error_array[*]}" -eq 0 ]]; then # regexes catching and not catching everything as expected
   echo "########################## ALL GOOD!! ############################"
   echo "### $counter REGEX TEST CASES CHECKED"
+  echo "### $fail_counter LINES BEING FLAGGED, AS EXPECTED (>>fail cases)"
+  echo "### $pass_counter LINES NOT BEING FLAGGED, AS EXPECTED (>>pass cases)"
   echo "### REGEXES CATCHING EVERYTHING AS EXPECTED"
   echo "##################################################################"
   PRINT_SEDATED

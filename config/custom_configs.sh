@@ -42,7 +42,7 @@
 
 ######### Custom variables #########
 
-# Show link to OWASP/SEDATED℠ GitHub repository in message output
+# Show link to OWASP/SEDATED GitHub repository in message output
 # If not set to "True" the link to OWASP/SEDATED will not be displayed
 show_SEDATED_link_custom="True" # Set to "True" to display link to OWASP/SEDATED GitHub repository ! case-sensitive !
 
@@ -54,9 +54,9 @@ documentation_link_custom=""
 # When this (use_enforced_repo_check_custom) variable is set to "True":
 ### all repos not included in the config/enforced_repos_list.txt file will merely
 ### see the enforced_repo_check_true_message_custom and documentation_link_custom messages ouput
-### SEDATED℠ will only scan the code of the repos included in that list (config/enforced_repos_list.txt)
+### SEDATED will only scan the code of the repos included in that list (config/enforced_repos_list.txt)
 # If this (use_enforced_repo_check_custom) variable is set to "False":
-### SEDATED℠ will scan the code of every repo it is enabled on
+### SEDATED will scan the code of every repo it is enabled on
 use_enforced_repo_check_custom="" # Set to "True" or "False" ! case-sensitive !
 enforced_repo_check_true_message_custom="SEDATED will soon be enforced on this repository..."
 obfuscate_output_custom="True" # Set to "True" or "False"
