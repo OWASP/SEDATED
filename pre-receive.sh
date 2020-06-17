@@ -46,6 +46,7 @@ start_time=$(date +%s%N)
 execution_time_ms=0
 my_path=${0%/*}
 regexes=${my_path}/config/regexes.json
+regexes_whitelist=${my_path}/config/whitelists/regexes_whitelist.json
 commit_whitelist=${my_path}/config/whitelists/commit_whitelist.txt
 repo_whitelist=${my_path}/config/whitelists/repo_whitelist.txt
 enforced_repos_list=${my_path}/config/enforced_repos_list.txt
@@ -279,6 +280,18 @@ function CREATE_PIPE_DELIMITED_REGEX_STRING() {
   fi
 }
 
+# Create pipe delimited regex_string from regexes json output
+function CREATE_PIPE_DELIMITED_REGEX_WHITELIST_STRING() {
+  if [[ -f "$regexes_whitelist" ]]; then # check if config/whitelists/regexes_whitelist.json file exists
+    regex_whitelist_string=$(cat "${regexes_whitelist}" | grep -Po ':[[:space:]]*\"[[:space:]]*\K(.*)' | sed 's/[[:space:]]*"[[:space:]]*}[[:space:]]*,/|/' | tr -d '\n' | sed 's/\\\\/\\/g' | sed '$s/"}$//' )
+  fi
+  # If no regexes included in the config/whitelists/regexes_whitelist.json file
+  if [[ ! "$regex_whitelist_string" ]]; then
+    PRINT_ERROR_MESSAGE_CUSTOM "UNABLE TO ACCESS REGEXES WHITELIST"
+    EXIT_SEDATED 1
+  fi
+}
+
 # $1 is commit ids included in push
 # $2 is list of commit ids included in push
 function PRINT_INITIAL_SEDATED_MESSAGE() {
@@ -386,8 +399,9 @@ function MAIN() {
   CALCULATE_NUM_COMMITS "${#commits_and_branches_array[*]}" "$num_of_branches"
   PRINT_INITIAL_SEDATED_MESSAGE "$total_num_of_commits" "$commits_and_branches"
 
-  # Create pipe delimited regex_string from regexes
+  # Create pipe delimited regex_string from regexes as well as whitelist regexes
   CREATE_PIPE_DELIMITED_REGEX_STRING
+  CREATE_PIPE_DELIMITED_REGEX_WHITELIST_STRING
 
   # Check if commit whitelist can be accessed, but don't exit
   if [[ ! -f "$commit_whitelist" ]]; then
@@ -413,7 +427,7 @@ function MAIN() {
     # Loops the git patch files and checks for everything that begins with "+"
     # which denotes any new/modified lines of code. It then takes those results
     # and bounces against the regexes.
-    local all_added_contents=$(git show -D "${commit_id}" | grep -E '^[\+]' | grep -P "${regex_string}" 2> /dev/null)
+    local all_added_contents=$(git show -D "${commit_id}" | grep -E '^[\+]' | grep -v -P "${regex_whitelist_string}"  | grep -P "${regex_string}" 2> /dev/null)
     REGEX_GREP_ERROR_CHECK # Checks if line length exceeds grep PCRE's backtracking limit or other grep error, if true throw error and exit 1
     if [[ "$all_added_contents" ]]; then
         while read line; do
