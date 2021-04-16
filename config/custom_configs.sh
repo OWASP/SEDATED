@@ -97,8 +97,8 @@ function EXIT_SEDATED_CUSTOM() {
   : # enter custom action to be taken
 }
 
-# Take custom action when repo_whitelist file cannot be accessed
-function UNABLE_TO_ACCESS_REPO_WHITELIST_CUSTOM() {
+# Take custom action when repo_allowlist file cannot be accessed
+function UNABLE_TO_ACCESS_REPO_ALLOWLIST_CUSTOM() {
   : # enter custom action to be taken
 }
 
@@ -117,8 +117,8 @@ function PUSH_REJECTED_WITH_VIOLATIONS_CUSTOM() {
   : # enter custom action to be taken
 }
 
-# Take custom action when SEDATED is unable to access config/whitelists/commit_whitelist.txt
-function UNABLE_TO_ACCESS_COMMIT_WHITELIST_CUSTOM() {
+# Take custom action when SEDATED is unable to access config/allowlists/commit_allowlist.txt
+function UNABLE_TO_ACCESS_COMMIT_ALLOWLIST_CUSTOM() {
   : # enter custom action to be taken
 }
 

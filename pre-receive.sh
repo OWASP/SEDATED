@@ -46,12 +46,12 @@ start_time=$(date +%s%N)
 execution_time_ms=0
 my_path=${0%/*}
 regexes=${my_path}/config/regexes.json
-commit_whitelist=${my_path}/config/whitelists/commit_whitelist.txt
-repo_whitelist=${my_path}/config/whitelists/repo_whitelist.txt
+commit_allowlist=${my_path}/config/allowlists/commit_allowlist.txt
+repo_allowlist=${my_path}/config/allowlists/repo_allowlist.txt
 enforced_repos_list=${my_path}/config/enforced_repos_list.txt
 custom_configs=${my_path}/config/custom_configs.sh
-commit_whitelisted_push=false
-repo_whitelisted_push=false
+commit_allowlisted_push=false
+repo_allowlisted_push=false
 zero_commit="0000000000000000000000000000000000000000"
 total_violations=0
 file_violations=0
@@ -225,41 +225,41 @@ function PRINT_ON_BRANCH_MESSAGE() {
   echo "On branch -> $branch"
 }
 
-# Check if current commit id being scanned is whitelisted
+# Check if current commit id being scanned is allowlisted
 # $1 commit id currently being scanned... "${commit_id}"
-function CHECK_IF_COMMIT_ID_IS_WHITELISTED() {
-  if [[ -f "$commit_whitelist" ]]; then # check if config/whitelists/commit_whitelist.txt file exists
-    commit_whitelisted=$(cat "$commit_whitelist" | grep -E "^[[:blank:]]*($1)[[:blank:]]*$")
+function CHECK_IF_COMMIT_ID_IS_ALLOWLISTED() {
+  if [[ -f "$commit_allowlist" ]]; then # check if config/allowlists/commit_allowlist.txt file exists
+    commit_allowlisted=$(cat "$commit_allowlist" | grep -E "^[[:blank:]]*($1)[[:blank:]]*$")
   fi
 
-  if [[ "$commit_whitelisted" ]]; then
+  if [[ "$commit_allowlisted" ]]; then
     if [[ "$branch_violations" == 0 && "$branch" ]]; then
       PRINT_ON_BRANCH_MESSAGE
       violation_commit_id_array=()
       ((branch_violations++))
     fi
-    echo "------------ ** WHITELISTED COMMIT ** ---------------"
+    echo "------------ ** ALLOWLISTED COMMIT ** ---------------"
     echo ">>>>>> $1 <<<<<"
-    commit_whitelisted_push=true
+    commit_allowlisted_push=true
     return 0
   fi
   return 1
 }
 
-# Check if current repo being scanned is whitelisted
-function CHECK_IF_REPO_IS_WHITELISTED() {
-  if [[ -f "$repo_whitelist" ]]; then # check if config/whitelists/repo_whitelist.txt file exists
-    repo_whitelisted=$(cat "$repo_whitelist" | grep -E "^[[:blank:]]*($user_group_name\/$repo_name)[[:blank:]]*$")
+# Check if current repo being scanned is allowlisted
+function CHECK_IF_REPO_IS_ALLOWLISTED() {
+  if [[ -f "$repo_allowlist" ]]; then # check if config/allowlists/repo_allowlist.txt file exists
+    repo_allowlisted=$(cat "$repo_allowlist" | grep -E "^[[:blank:]]*($user_group_name\/$repo_name)[[:blank:]]*$")
   else
-    PRINT_ERROR_MESSAGE_CUSTOM "UNABLE TO FIND REPO WHITELIST FILE"
-    UNABLE_TO_ACCESS_REPO_WHITELIST_CUSTOM
+    PRINT_ERROR_MESSAGE_CUSTOM "UNABLE TO FIND REPO ALLOWLIST FILE"
+    UNABLE_TO_ACCESS_REPO_ALLOWLIST_CUSTOM
   fi
 
-  if [[ "$repo_whitelisted" ]]; then
-    repo_whitelisted_push=true
+  if [[ "$repo_allowlisted" ]]; then
+    repo_allowlisted_push=true
     echo "========================================"
     PRINT_HAPPY_CREDENTIAL_PANDA
-    echo "$user_group_name/$repo_name has been whitelisted"
+    echo "$user_group_name/$repo_name has been allowlisted"
     PRINT_PUSH_ACCEPTED_MESSAGE
     PUSH_ACCEPTED_CUSTOM
     EXIT_SEDATED 0
@@ -372,8 +372,8 @@ function MAIN() {
     exit 1
   fi
 
-  # If repo is in config/whitelists/repo_whitelist.txt file, accept push and exit SEDATED℠
-  CHECK_IF_REPO_IS_WHITELISTED
+  # If repo is in config/allowlists/repo_allowlist.txt file, accept push and exit SEDATED℠
+  CHECK_IF_REPO_IS_ALLOWLISTED
 
   # Loop through each branch being pushed
   while read -r base_commit_id latest_commit_id branch_name; do
@@ -389,10 +389,10 @@ function MAIN() {
   # Create pipe delimited regex_string from regexes
   CREATE_PIPE_DELIMITED_REGEX_STRING
 
-  # Check if commit whitelist can be accessed, but don't exit
-  if [[ ! -f "$commit_whitelist" ]]; then
-    PRINT_ERROR_MESSAGE_CUSTOM "UNABLE TO FIND COMMIT WHITELIST FILE"
-    UNABLE_TO_ACCESS_COMMIT_WHITELIST_CUSTOM
+  # Check if commit allowlist can be accessed, but don't exit
+  if [[ ! -f "$commit_allowlist" ]]; then
+    PRINT_ERROR_MESSAGE_CUSTOM "UNABLE TO FIND COMMIT ALLOWLIST FILE"
+    UNABLE_TO_ACCESS_COMMIT_ALLOWLIST_CUSTOM
   fi
   # Loop through each commit id in the push
   for commit_id in "${commits_and_branches_array[@]}"; do
@@ -403,12 +403,12 @@ function MAIN() {
     # If not a commit id and instead is a branch name (i.e. exit code 0) continue to next commit id
     if [[ "$branch_name_check_exit_code" == 0 ]]; then continue; fi
 
-    CHECK_IF_COMMIT_ID_IS_WHITELISTED "${commit_id}"
-    # Exit code 0 returned by function means commit id is whitelisted
-    local whitelisted_exit_code=$?
+    CHECK_IF_COMMIT_ID_IS_ALLOWLISTED "${commit_id}"
+    # Exit code 0 returned by function means commit id is allowlisted
+    local allowlisted_exit_code=$?
 
-    # If commit id is whitelisted (i.e. exit code 0) break out of loop to next commit id
-    if [[ "$whitelisted_exit_code" == 0 ]]; then continue; fi
+    # If commit id is allowlisted (i.e. exit code 0) break out of loop to next commit id
+    if [[ "$allowlisted_exit_code" == 0 ]]; then continue; fi
 
     # Loops the git patch files and checks for everything that begins with "+"
     # which denotes any new/modified lines of code. It then takes those results

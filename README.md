@@ -16,8 +16,8 @@ The **SEDATED&#174;** Project (Sensitive Enterprise Data Analyzer To Eliminate D
   - [`/config/custom_configs.sh`](#customConfigs)
   - [`/config/enforced_repos_list.txt`](#enforcedReposList)
   - [`/config/regexes.json`](#regexes)
-  - [`/config/whitelists/commit_whitelist.txt`](#commitWhitelist)
-  - [`/config/whitelists/repo_whitelist.txt`](#repoWhitelist)
+  - [`/config/allowlists/commit_allowlist.txt`](#commitAllowlist)
+  - [`/config/allowlists/repo_allowlist.txt`](#repoAllowlist)
   - [`/testing/regex_testing/regex_test_script.sh`](#regexTestScript)
   - [`/testing/regex_testing/test_cases.txt`](#testCases)
 - [Customization](#customization)
@@ -43,9 +43,9 @@ With the myriad of code changes required in today's CICD environment developers 
 
 `cd SEDATED/`
 #### <a id="setup2">2. Update `.example` files</a>
-`cp /config/whitelists/commit_whitelist.txt.example /config/whitelists/commit_whitelist.txt`
+`cp /config/allowlists/commit_allowlist.txt.example /config/allowlists/commit_allowlist.txt`
 
-`cp /config/whitelists/repo_whitelist.txt.example /config/whitelists/repo_whitelist.txt`
+`cp /config/allowlists/repo_allowlist.txt.example /config/allowlists/repo_allowlist.txt`
 
 `cp /config/enforced_repos_list.txt.example /config/enforced_repos_list.txt`
 #### <a id="setup3">3. Customize `/config/custom_configs.sh` Variables and Functions (as desired)</a>
@@ -83,15 +83,15 @@ Instructions for accomplishing this on a GitHub Enterprise instance can be found
 - These regexes are consumed by GNU grep (in `pre-receive.sh`) with the `-P` flag making them Perl-compatible regular expressions (PCREs).
 - Regexes may be added or removed from this file as-needed, however if utilizing the `/testing/regex_testing/regex_test_script.sh` script the `/testing/regex_testing/test_cases.txt` file will need to updated by adding or removing the test cases pertaining to the updated regexes so the results from the `/testing/regex_testing/regex_test_script.sh` will be accurate.
 - If adding/modifying regexes in this file additional escape characters `\` may be needed depending on the desired regexes since this file is in JSON format.
-##### <a id="commitWhitelist">`/config/whitelists/commit_whitelist.txt`</a>
+##### <a id="commitAllowlist">`/config/allowlists/commit_allowlist.txt`</a>
 - Utilized in the case of a false positive, one or more commits can be excluded in the scanning process if their commit ID's are included in this file.
-- Commit ID's will need to be carriage return separated in this file as shown in the `/config/whitelists/commit_whitelist.txt.example` file.
+- Commit ID's will need to be carriage return separated in this file as shown in the `/config/allowlists/commit_allowlist.txt.example` file.
 - This file can be blank, but does need to exist.
-##### *Optional: Request that developers submit pull requests to this (`commit_whitelist.txt`) file when they encounter false positives so they can be reviewed.*
-##### <a id="repoWhitelist">`/config/whitelists/repo_whitelist.txt`</a>
+##### *Optional: Request that developers submit pull requests to this (`commit_allowlist.txt`) file when they encounter false positives so they can be reviewed.*
+##### <a id="repoAllowlist">`/config/allowlists/repo_allowlist.txt`</a>
 - (organization/username)/repositories included in this file will be entirely excluded from scanning for sensitive data/hard-coded credentials until removed from this list.
 - Utilized in the case of a massive push (repository migration for example) where **SEDATED&#174;** cannot scan the new/modified code included in the push within the 5 second window (the 5 second window is GitHub specific and may be different on other Git instances).
-- (organization/username)/repository names need to be carriage return separated in this file as shown in the `/config/whitelists/repo_whitelist.txt.example` file.
+- (organization/username)/repository names need to be carriage return separated in this file as shown in the `/config/allowlists/repo_allowlist.txt.example` file.
 - This file can be blank, but does need to exist.
 ##### <a id="regexTestScript">`/testing/regex_testing/regex_test_script.sh`</a>
 - The **SEDATED&#174;** regular expression testing script used in conjunction with `testing/regex_testing/test_cases.txt` is a simple, quick, offline way to test/validate that the regular expressions inside `config/regexes.json` are valid and matching the desired patterns as well as excluding/not matching as desired.
@@ -128,8 +128,8 @@ Custom variables and functions are designed to allow organizations to easily cus
 - `EXIT_SEDATED_CUSTOM`
   - Take additional custom action when exiting **SEDATED&#174;** (i.e. log, send metrics, etc...).
   - Defaults to `:` "do nothing" as an additional action, and is not required to be changed.
-- `UNABLE_TO_ACCESS_REPO_WHITELIST_CUSTOM`
-  - Take additional custom action when **SEDATED&#174;** is unable to access the repo whitelist file (i.e. print error message, log, send metric, etc...).
+- `UNABLE_TO_ACCESS_REPO_ALLOWLIST_CUSTOM`
+  - Take additional custom action when **SEDATED&#174;** is unable to access the repo allowlist file (i.e. print error message, log, send metric, etc...).
   - Defaults to `:` "do nothing" as an additional action, and is not required to be changed.
 - `PUSH_ACCEPTED_CUSTOM`
   - Take additional custom action when a push is accepted (i.e. log, send metrics, etc...).
@@ -141,8 +141,8 @@ Custom variables and functions are designed to allow organizations to easily cus
 - `PUSH_REJECTED_WITH_VIOLATIONS_CUSTOM`
   - Take additional custom action when pushes are rejected for containing violations (i.e. log, send metrics, etc...).
   - Defaults to `:` "do nothing" as an additional action, and is not required to be changed.
-- `UNABLE_TO_ACCESS_COMMIT_WHITELIST_CUSTOM`
-  - Take additional custom action when **SEDATED&#174;** is unable to access the commit whitelist file (i.e. log, send metrics, etc...).
+- `UNABLE_TO_ACCESS_COMMIT_ALLOWLIST_CUSTOM`
+  - Take additional custom action when **SEDATED&#174;** is unable to access the commit allowlist file (i.e. log, send metrics, etc...).
   - Defaults to `:` "do nothing" as an additional action, and is not required to be changed.
 
 ## <a id="compatibility">Compatibility</a>
