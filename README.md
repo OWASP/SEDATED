@@ -177,5 +177,6 @@ You can contribute in either of the following ways:
 **SEDATED&#174;** is licensed under the [BSD 3-Clause "New" or "Revised" License](LICENSE.md).
 
 <hr />
+test
 
 \*\****SEDATED&#174;** is not guaranteed to flag every instance of hard-coded credential, key, secret, etc... it uses regex pattern matching and though it has gotten pretty good at catching most instances it is not perfect, but we are always open to ideas and/or pull requests to help make **SEDATED&#174;** even better.* 
